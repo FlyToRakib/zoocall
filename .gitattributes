@@ -1,0 +1,21 @@
+# Normalize line endings (repo is developed on Windows and built on Linux/macOS CI)
+* text=auto eol=lf
+
+# Windows scripts keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.icns binary
+*.jar binary
+*.so binary
+*.dll binary
+*.dylib binary
+*.ogg binary
+*.wav binary
+*.mp3 binary
