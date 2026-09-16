@@ -16,6 +16,14 @@ flowchart LR
 
 ---
 
+> **Progress (2026-09-13):** Gradle monorepo, protocol schema + spec, Noise XX (official vectors pass), transport, discovery, 1:1 call state machine + signaling, chat, encrypted store, shared UI, Android shell and desktop shell are implemented. JVM tests pass; real-device testing (Android ↔ Android first) is next. Implementation decisions: [docs/adr/0001](adr/0001-m1-implementation-choices.md).
+>
+> **Progress (2026-09-14, M2 in progress):** core for replies, reactions, delete-for-me, message search, photos & files (hash-verified, resumable, FILE connections), custom status, message requests, decline with quick message, call waiting, hold and audio → video upgrade with consent is implemented and covered by JVM tests. Desktop call stats now include codecs and bitrates. The shared UI for all of these, Android picture-in-picture and file sharing, desktop file dialogs, start at login (`--background`) and the in-app Windows Firewall helper are implemented; device testing is next. Decisions: [docs/adr/0002](adr/0002-m2-implementation-choices.md).
+
+> **Progress (2026-09-14, M3 in progress):** Android ↔ Android and Android ↔ Windows calls, chat, voice notes and files verified on devices. Desktop audio/video device selection with hot-plug. Network Doctor (checks, plain fixes, Windows profile/firewall and Android battery fixes) and Knock (live nudge with one-tap replies, Android notification actions, desktop tray notifications) are implemented with JVM tests. Decisions: [docs/adr/0003](adr/0003-m3-implementation-choices.md).
+
+> **Progress (2026-09-14, M4 + M5 code complete):** M3 is complete; the M4 code items (encrypted attachments at rest, Bengali/RTL, localized desktop shell) are done ([ADR 0004](adr/0004-m4-implementation-choices.md)); all ten M5 stand-out features are implemented and covered by JVM tests where they have logic ([ADR 0005](adr/0005-m5-implementation-choices.md)). Next: device testing of M3–M5 (group calls, linked devices and transfer need three devices), then the M4 items that need people, devices or accounts: accessibility pass, Android performance budgets, fuzzing, guides, signing and distribution.
+
 ## M0 — Foundations + technical spikes
 
 **Goal:** a working build on the Windows dev PC and proof that the risky libraries work.
@@ -76,27 +84,27 @@ Release
 - [ ] Picture-in-Picture (Android), separate resizable call window (Desktop)
 - [ ] "Stay reachable" foreground mode (Android), start at login + tray (Desktop)
 - [ ] Favorites, block list, "Allow calls from", stranger requests
-- [ ] Windows firewall rule in installer
+- [x] Windows firewall rule in installer — replaced by the in-app firewall helper and Network Doctor fix, since a per-user MSI can't add rules (ADR 0002 #13)
 
 **Exit:** a small team (≥ 5 devices, mixed Android + Windows) uses Zoocall for a week of daily calls and chat.
 
 ## M3 — Team features (v0.3 beta)
 
-- [ ] **Group calls:** audio ≤ 8, video ≤ 4, add people mid-call
-- [ ] **Push-to-talk** (1:1 and group), including desktop `Space` hotkey
-- [ ] **Knock** with one-tap replies
-- [ ] **Voice notes**
-- [ ] **Screen sharing** from Desktop (receive on Android and Desktop)
-- [ ] **Network Doctor** (Wi-Fi, VPN, multicast, client isolation, Windows Public profile, firewall, virtual adapters)
-- [ ] Flash alert for incoming calls (accessibility), ringtones & sounds settings
-- [ ] Global mute hotkey (Desktop)
+- [x] **Group calls:** audio ≤ 8, video ≤ 4, add people mid-call
+- [x] **Push-to-talk** (1:1 and group), including desktop `Space` hotkey
+- [x] **Knock** with one-tap replies
+- [x] **Voice notes**
+- [x] **Screen sharing** from Desktop (receive on Android and Desktop)
+- [x] **Network Doctor** (Wi-Fi, VPN, multicast, client isolation, Windows Public profile, firewall, virtual adapters)
+- [x] Flash alert for incoming calls (accessibility), ringtones & sounds settings
+- [x] Global mute hotkey (Desktop)
 
 **Exit:** interop matrix (Android, Windows, macOS) green for all features. Group call with 3 phones + 1 PC works.
 
 ## M4 — Hardening (v1.0 stable)
 
-- [ ] Encrypted attachments at rest
-- [ ] Bengali translation, RTL verified, strings complete
+- [x] Encrypted attachments at rest
+- [x] Bengali translation, RTL verified, strings complete
 - [ ] Full accessibility pass: TalkBack, Narrator/NVDA, VoiceOver, 200 % font scale
 - [ ] Performance budgets met (startup, CPU, battery, installer size)
 - [ ] Security: fuzzing ≥ 24 h clean, MITM lab test, Noise interop test, external audit request
@@ -110,16 +118,16 @@ Release
 
 Ordered by value / effort. Each ships independently behind capabilities.
 
-1. Contact groups + broadcast announcements
-2. Private discovery ("Contacts only" with rotating tags)
-3. On-device **live captions**
-4. ML noise suppression + background blur
-5. Linked devices (ring phone + PC together)
-6. Desk intercom mode (desktop, opt-in)
-7. Encrypted export/import, app lock, disappearing messages
-8. Small group chats (≤ 32)
-9. Screen sharing from Android
-10. Call recording with consent, call transfer
+1. ✅ Contact groups + broadcast announcements ([ADR 0005](adr/0005-m5-implementation-choices.md))
+2. ✅ Private discovery ("Contacts only" with rotating tags)
+3. ✅ On-device **live captions** (system captioning, ADR 0005 #4)
+4. ✅ ML noise suppression + background blur (strong NS on desktop + OS effects, ADR 0005 #5)
+5. ✅ Linked devices (ring phone + PC together, ADR 0005 #6)
+6. ✅ Desk intercom mode (desktop, opt-in, ADR 0005 #7)
+7. ✅ Encrypted export/import, app lock, disappearing messages (ADR 0005 #8–10)
+8. ✅ Small group chats (≤ 32, ADR 0005 #11)
+9. ✅ Screen sharing from Android (MediaProjection, ADR 0005 #12)
+10. ✅ Call recording with consent, call transfer (ADR 0005 #13–14)
 
 ## v2 — New platforms
 
