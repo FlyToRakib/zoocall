@@ -1,0 +1,18 @@
+-- Voice message audio, stored inside the encrypted database (encrypted at rest by SQLCipher).
+CREATE TABLE voice_clip (
+    message_id TEXT NOT NULL PRIMARY KEY,
+    audio BLOB NOT NULL,
+    waveform BLOB NOT NULL
+);
+
+insert:
+INSERT OR IGNORE INTO voice_clip(message_id, audio, waveform) VALUES (?, ?, ?);
+
+selectByMessage:
+SELECT * FROM voice_clip WHERE message_id = ?;
+
+deleteForMessage:
+DELETE FROM voice_clip WHERE message_id = ?;
+
+deleteForPeer:
+DELETE FROM voice_clip WHERE message_id IN (SELECT id FROM message WHERE peer_fp = ?);

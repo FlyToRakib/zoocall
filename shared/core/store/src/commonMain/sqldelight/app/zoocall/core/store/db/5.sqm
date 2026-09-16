@@ -1,0 +1,14 @@
+-- v5 → v6: local contact groups and group announcements.
+CREATE TABLE contact_group (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    created_at_ms INTEGER NOT NULL
+);
+
+CREATE TABLE contact_group_member (
+    group_id TEXT NOT NULL,
+    fingerprint TEXT NOT NULL,
+    PRIMARY KEY (group_id, fingerprint)
+);
+
+ALTER TABLE message ADD COLUMN announcement INTEGER NOT NULL DEFAULT 0;

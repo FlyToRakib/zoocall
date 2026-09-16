@@ -1,0 +1,38 @@
+CREATE TABLE call_log (
+    call_id TEXT NOT NULL PRIMARY KEY,
+    peer_fp TEXT NOT NULL,
+    outgoing INTEGER NOT NULL,
+    video INTEGER NOT NULL,
+    started_at_ms INTEGER NOT NULL,
+    connected_at_ms INTEGER,
+    ended_at_ms INTEGER NOT NULL,
+    end_reason TEXT NOT NULL,
+    seen INTEGER NOT NULL DEFAULT 0,
+    -- Call recording (with everyone's knowledge): its file key and length; NULL when not recorded.
+    recording_key BLOB,
+    recording_ms INTEGER
+);
+
+CREATE INDEX call_log_time ON call_log(started_at_ms);
+
+recent:
+SELECT * FROM call_log ORDER BY started_at_ms DESC LIMIT ?;
+
+insert:
+INSERT OR REPLACE INTO call_log(call_id, peer_fp, outgoing, video, started_at_ms, connected_at_ms, ended_at_ms, end_reason, seen, recording_key, recording_ms)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+selectById:
+SELECT * FROM call_log WHERE call_id = ?;
+
+unseenMissedCount:
+SELECT COUNT(*) FROM call_log WHERE outgoing = 0 AND end_reason = 'Missed' AND seen = 0;
+
+markAllSeen:
+UPDATE call_log SET seen = 1 WHERE seen = 0;
+
+deleteOne:
+DELETE FROM call_log WHERE call_id = ?;
+
+clear:
+DELETE FROM call_log;

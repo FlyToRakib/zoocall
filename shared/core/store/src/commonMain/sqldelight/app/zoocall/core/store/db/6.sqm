@@ -1,0 +1,25 @@
+-- v6 → v7: linked devices (a contact that is one of the user's own devices), per-contact desk
+-- intercom opt-in, disappearing messages and small group chats.
+ALTER TABLE contact ADD COLUMN linked INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE contact ADD COLUMN allow_intercom INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE message ADD COLUMN expires_at_ms INTEGER;
+CREATE INDEX message_expiry ON message(expires_at_ms) WHERE expires_at_ms IS NOT NULL;
+ALTER TABLE message ADD COLUMN group_id TEXT;
+ALTER TABLE call_log ADD COLUMN recording_key BLOB;
+ALTER TABLE call_log ADD COLUMN recording_ms INTEGER;
+CREATE INDEX message_group_time ON message(group_id, received_at_ms) WHERE group_id IS NOT NULL;
+
+CREATE TABLE group_chat (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    members TEXT NOT NULL,
+    updated_at_ms INTEGER NOT NULL,
+    left_group INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE group_recipient (
+    message_id TEXT NOT NULL,
+    member_fp TEXT NOT NULL,
+    state TEXT NOT NULL,
+    PRIMARY KEY (message_id, member_fp)
+);

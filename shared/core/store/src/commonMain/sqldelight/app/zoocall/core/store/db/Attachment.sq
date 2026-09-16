@@ -1,0 +1,42 @@
+-- File attached to a message. The bytes live in the app's private attachments directory, named by message id.
+-- state: offered | requested | paused | done | failed
+CREATE TABLE attachment (
+    message_id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    mime TEXT NOT NULL,
+    size INTEGER NOT NULL,
+    hash BLOB NOT NULL,
+    state TEXT NOT NULL,
+    transferred INTEGER NOT NULL DEFAULT 0,
+    -- Key of the file's at-rest encryption (null: a plain file from before v5, or no download started yet).
+    file_key BLOB
+);
+
+insert:
+INSERT OR IGNORE INTO attachment(message_id, name, mime, size, hash, state, transferred, file_key) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+setFileKey:
+UPDATE attachment SET file_key = ? WHERE message_id = ?;
+
+selectById:
+SELECT a.*, m.peer_fp, m.outgoing FROM attachment a JOIN message m ON m.id = a.message_id WHERE a.message_id = ?;
+
+setState:
+UPDATE attachment SET state = ?, transferred = ? WHERE message_id = ?;
+
+setTransferred:
+UPDATE attachment SET transferred = ? WHERE message_id = ?;
+
+-- Incoming downloads the user wants but that haven't finished (resumed when the sender reconnects).
+activeDownloads:
+SELECT a.message_id FROM attachment a JOIN message m ON m.id = a.message_id
+WHERE m.peer_fp = ? AND m.outgoing = 0 AND a.state = 'requested';
+
+deleteForMessage:
+DELETE FROM attachment WHERE message_id = ?;
+
+idsForPeer:
+SELECT a.message_id FROM attachment a JOIN message m ON m.id = a.message_id WHERE m.peer_fp = ?;
+
+deleteForPeer:
+DELETE FROM attachment WHERE message_id IN (SELECT id FROM message WHERE peer_fp = ?);

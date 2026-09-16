@@ -1,0 +1,49 @@
+-- Small group chats (docs/01 §5): shared by their members, unlike local contact groups.
+-- members: space-separated lowercase hex fingerprints, including this device's own.
+-- left_group: 1 once we left or were removed; new messages for it are ignored.
+CREATE TABLE group_chat (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    members TEXT NOT NULL,
+    updated_at_ms INTEGER NOT NULL,
+    left_group INTEGER NOT NULL DEFAULT 0
+);
+
+-- Delivery of one outgoing group message to one member (edge case M11).
+-- state: sending | sent | delivered | read
+CREATE TABLE group_recipient (
+    message_id TEXT NOT NULL,
+    member_fp TEXT NOT NULL,
+    state TEXT NOT NULL,
+    PRIMARY KEY (message_id, member_fp)
+);
+
+selectAll:
+SELECT * FROM group_chat WHERE left_group = 0 ORDER BY name COLLATE NOCASE;
+
+selectById:
+SELECT * FROM group_chat WHERE id = ?;
+
+upsert:
+INSERT OR REPLACE INTO group_chat(id, name, members, updated_at_ms, left_group) VALUES (?, ?, ?, ?, ?);
+
+insertRecipient:
+INSERT OR IGNORE INTO group_recipient(message_id, member_fp, state) VALUES (?, ?, 'sending');
+
+pendingForMember:
+SELECT r.message_id FROM group_recipient r JOIN message m ON m.id = r.message_id
+WHERE r.member_fp = ? AND r.state = 'sending'
+ORDER BY m.received_at_ms ASC;
+
+-- Only moves forward: sending → sent → delivered → read.
+advanceRecipient:
+UPDATE group_recipient SET state = :state
+WHERE message_id = :id AND member_fp = :member AND
+  (CASE state WHEN 'sending' THEN 0 WHEN 'sent' THEN 1 WHEN 'delivered' THEN 2 WHEN 'read' THEN 3 ELSE 0 END) <
+  (CASE :state WHEN 'sending' THEN 0 WHEN 'sent' THEN 1 WHEN 'delivered' THEN 2 WHEN 'read' THEN 3 ELSE 0 END);
+
+deliveryForGroup:
+SELECT r.message_id, r.state FROM group_recipient r JOIN message m ON m.id = r.message_id WHERE m.group_id = ?;
+
+deleteRecipientsForMessage:
+DELETE FROM group_recipient WHERE message_id = ?;

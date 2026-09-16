@@ -1,0 +1,40 @@
+-- Local contact groups ("Kitchen", "Security team"), used for group calls and announcements. Never sent to anyone.
+CREATE TABLE contact_group (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    created_at_ms INTEGER NOT NULL
+);
+
+CREATE TABLE contact_group_member (
+    group_id TEXT NOT NULL,
+    fingerprint TEXT NOT NULL,
+    PRIMARY KEY (group_id, fingerprint)
+);
+
+groupsWithMembers:
+SELECT g.id, g.name, g.created_at_ms, m.fingerprint
+FROM contact_group g LEFT JOIN contact_group_member m ON m.group_id = g.id
+ORDER BY g.name COLLATE NOCASE, g.id;
+
+groupWithMembers:
+SELECT g.id, g.name, g.created_at_ms, m.fingerprint
+FROM contact_group g LEFT JOIN contact_group_member m ON m.group_id = g.id
+WHERE g.id = ?;
+
+insertGroup:
+INSERT INTO contact_group(id, name, created_at_ms) VALUES (?, ?, ?);
+
+renameGroup:
+UPDATE contact_group SET name = ? WHERE id = ?;
+
+deleteGroup:
+DELETE FROM contact_group WHERE id = ?;
+
+deleteMembers:
+DELETE FROM contact_group_member WHERE group_id = ?;
+
+addMember:
+INSERT OR IGNORE INTO contact_group_member(group_id, fingerprint) VALUES (?, ?);
+
+removeFromAllGroups:
+DELETE FROM contact_group_member WHERE fingerprint = ?;

@@ -1,0 +1,100 @@
+-- state: sending | sent | delivered | read | received | seen
+-- kind: text | voice | file (voice audio lives in voice_clip, file metadata in attachment; body holds the file name)
+CREATE TABLE message (
+    id TEXT NOT NULL PRIMARY KEY,
+    peer_fp TEXT NOT NULL,
+    outgoing INTEGER NOT NULL,
+    body TEXT NOT NULL,
+    state TEXT NOT NULL,
+    sent_at_ms INTEGER NOT NULL,
+    received_at_ms INTEGER NOT NULL,
+    reply_to TEXT,
+    kind TEXT NOT NULL DEFAULT 'text',
+    duration_ms INTEGER,
+    -- 1: a broadcast announcement to a contact group.
+    announcement INTEGER NOT NULL DEFAULT 0,
+    -- Disappearing messages: deleted locally at this time. NULL keeps the message.
+    expires_at_ms INTEGER,
+    -- Small group chats: the group this message belongs to (see GroupChat.sq). For our own group
+    -- messages peer_fp is our fingerprint; delivery per member lives in group_recipient.
+    group_id TEXT
+);
+
+CREATE INDEX message_peer_time ON message(peer_fp, received_at_ms);
+CREATE INDEX message_outbox ON message(peer_fp, state) WHERE outgoing = 1;
+CREATE INDEX message_expiry ON message(expires_at_ms) WHERE expires_at_ms IS NOT NULL;
+CREATE INDEX message_group_time ON message(group_id, received_at_ms) WHERE group_id IS NOT NULL;
+
+-- A 1:1 conversation (groupId NULL) or a group chat.
+conversation:
+SELECT m.*, a.name AS att_name, a.mime AS att_mime, a.size AS att_size, a.state AS att_state, a.transferred AS att_transferred
+FROM message m LEFT JOIN attachment a ON a.message_id = m.id
+WHERE m.group_id = :groupId OR (:groupId IS NULL AND m.group_id IS NULL AND m.peer_fp = :peer)
+ORDER BY m.received_at_ms ASC, m.id ASC;
+
+conversations:
+SELECT m.peer_fp, m.body, m.outgoing, m.state, m.received_at_ms, m.kind,
+       (SELECT COUNT(*) FROM message u WHERE u.peer_fp = m.peer_fp AND u.group_id IS NULL AND u.outgoing = 0 AND u.state = 'received') AS unread,
+       (SELECT COUNT(*) FROM message o WHERE o.peer_fp = m.peer_fp AND o.group_id IS NULL AND o.outgoing = 1) AS sent_count
+FROM message m
+WHERE m.group_id IS NULL AND
+  m.id = (SELECT m2.id FROM message m2 WHERE m2.peer_fp = m.peer_fp AND m2.group_id IS NULL ORDER BY m2.received_at_ms DESC, m2.id DESC LIMIT 1)
+ORDER BY m.received_at_ms DESC;
+
+groupConversations:
+SELECT g.id AS group_id, g.name AS group_name, m.peer_fp, m.body, m.outgoing, m.state, m.received_at_ms, m.kind,
+       (SELECT COUNT(*) FROM message u WHERE u.group_id = g.id AND u.outgoing = 0 AND u.state = 'received') AS unread
+FROM group_chat g JOIN message m ON m.id = (
+    SELECT m2.id FROM message m2 WHERE m2.group_id = g.id ORDER BY m2.received_at_ms DESC, m2.id DESC LIMIT 1
+)
+WHERE g.left_group = 0;
+
+groupUnreadIncoming:
+SELECT id, peer_fp FROM message WHERE group_id = ? AND outgoing = 0 AND state = 'received';
+
+markGroupSeen:
+UPDATE message SET state = 'seen' WHERE group_id = ? AND outgoing = 0 AND state = 'received';
+
+totalUnread:
+SELECT COUNT(*) FROM message WHERE outgoing = 0 AND state = 'received';
+
+insert:
+INSERT OR IGNORE INTO message(id, peer_fp, outgoing, body, state, sent_at_ms, received_at_ms, reply_to, kind, duration_ms, announcement, expires_at_ms, group_id)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+expiredIds:
+SELECT id FROM message WHERE expires_at_ms IS NOT NULL AND expires_at_ms <= ?;
+
+-- Encrypted export: text and voice messages that aren't set to disappear.
+forBackup:
+SELECT * FROM message WHERE kind IN ('text', 'voice') AND expires_at_ms IS NULL AND group_id IS NULL ORDER BY received_at_ms ASC, id ASC;
+
+selectById:
+SELECT * FROM message WHERE id = ?;
+
+-- Local search (docs/01 §5). `\` escapes % and _ in the pattern.
+search:
+SELECT * FROM message WHERE kind != 'voice' AND body LIKE ('%' || :query || '%') ESCAPE '\'
+ORDER BY received_at_ms DESC LIMIT :limit;
+
+-- Only moves forward: sending → sent → delivered → read.
+advanceOutgoingState:
+UPDATE message SET state = :state
+WHERE id = :id AND outgoing = 1 AND peer_fp = :peer AND
+  (CASE state WHEN 'sending' THEN 0 WHEN 'sent' THEN 1 WHEN 'delivered' THEN 2 WHEN 'read' THEN 3 ELSE 0 END) <
+  (CASE :state WHEN 'sending' THEN 0 WHEN 'sent' THEN 1 WHEN 'delivered' THEN 2 WHEN 'read' THEN 3 ELSE 0 END);
+
+outbox:
+SELECT * FROM message WHERE peer_fp = ? AND outgoing = 1 AND state = 'sending' AND group_id IS NULL ORDER BY received_at_ms ASC;
+
+unreadIncomingIds:
+SELECT id FROM message WHERE peer_fp = ? AND outgoing = 0 AND state = 'received' AND group_id IS NULL;
+
+markSeen:
+UPDATE message SET state = 'seen' WHERE peer_fp = ? AND outgoing = 0 AND state = 'received' AND group_id IS NULL;
+
+deleteById:
+DELETE FROM message WHERE id = ?;
+
+deleteConversation:
+DELETE FROM message WHERE peer_fp = ? AND group_id IS NULL;

@@ -1,0 +1,3 @@
+-- v4 → v5: attachments encrypted at rest. Each file's key lives here, inside the encrypted database.
+-- Rows from before this version have no key: their files stay readable as plain files.
+ALTER TABLE attachment ADD COLUMN file_key BLOB;
