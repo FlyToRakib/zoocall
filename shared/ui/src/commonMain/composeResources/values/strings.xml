@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Source language: English. Plain language, verbs on buttons, never guess pronouns (docs/05 §8). -->
+<resources>
+    <string name="app_name">Zoocall</string>
+    <string name="tagline">Call and chat with anyone on your Wi-Fi. No internet. No account.</string>
+
+    <!-- Common -->
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="action_done">Done</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_retry">Try again</string>
+    <string name="action_call">Call</string>
+    <string name="action_video">Video</string>
+    <string name="action_message">Message</string>
+    <string name="action_add">Add</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_search">Search</string>
+    <string name="action_clear_search">Clear search</string>
+    <string name="action_more">More options</string>
+    <string name="action_open_settings">Open settings</string>
+    <string name="loading">Starting Zoocall…</string>
+    <string name="unknown_person">Zoocall user</string>
+    <string name="time_just_now">just now</string>
+    <string name="time_minutes_ago">%1$d min ago</string>
+    <string name="time_hours_ago">%1$d h ago</string>
+    <string name="people_section_blocked">Blocked</string>
+    <string name="person_unavailable_title">Not available</string>
+    <string name="person_unavailable_body">This person isn\'t on your network right now. Their details will show here when they\'re back.</string>
+    <string name="chat_empty_hint">Say hi to %1$s. Send a message or tap the mic for a voice message. Everything stays on your network.</string>
+    <string name="call_return">Return to call</string>
+    <string name="call_show_controls">Show call controls</string>
+    <string name="settings_saved">Profile saved</string>
+    <string name="settings_name_invalid">Enter a name with letters or numbers.</string>
+    <string name="startup_failed_title">Zoocall couldn\'t start</string>
+    <string name="startup_failed_body">Something went wrong while opening your secure storage. Details: %1$s</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Welcome to Zoocall</string>
+    <string name="onboarding_name_label">Your name</string>
+    <string name="onboarding_name_supporting">This is how people on your network will see you.</string>
+    <string name="onboarding_role_label">Role (optional)</string>
+    <string name="onboarding_role_supporting">For example "Front desk" or "Kitchen".</string>
+    <string name="onboarding_get_started">Get started</string>
+    <string name="onboarding_privacy">Everything stays on your network and is end-to-end encrypted.</string>
+
+    <!-- Navigation -->
+    <string name="nav_people">People</string>
+    <string name="nav_chats">Chats</string>
+    <string name="nav_recents">Recents</string>
+    <string name="nav_settings">Settings</string>
+    <string name="badge_unread">%1$d unread</string>
+
+    <!-- Presence -->
+    <string name="presence_available">Available</string>
+    <string name="presence_busy">Busy</string>
+    <string name="presence_dnd">Do not disturb</string>
+    <string name="presence_away">Away</string>
+    <string name="presence_offline">Offline</string>
+    <string name="presence_in_call">In a call</string>
+    <string name="last_seen">Last seen %1$s</string>
+
+    <!-- People -->
+    <string name="people_search">Search people</string>
+    <string name="people_section_favorites">Favorites</string>
+    <string name="people_section_nearby">Nearby now</string>
+    <string name="people_section_offline">Offline contacts</string>
+    <string name="people_empty_title">No one nearby yet</string>
+    <string name="people_empty_body">Make sure others have Zoocall open on the same Wi-Fi.</string>
+    <string name="people_no_results">No one matches "%1$s"</string>
+    <string name="people_not_on_wifi">Connect to Wi-Fi to reach your team</string>
+    <string name="people_vpn_warning">A VPN is on. It may hide other devices on your network.</string>
+    <string name="verified">Verified</string>
+    <string name="not_verified">Not verified</string>
+    <string name="name_conflict">Different device than your verified contact with this name</string>
+    <string name="call_person">Call %1$s</string>
+    <string name="video_call_person">Video call %1$s</string>
+    <string name="add_contact">Add someone</string>
+    <string name="add_by_qr">Scan QR code</string>
+    <string name="add_by_address">Add by address</string>
+    <string name="show_my_code">Show my code</string>
+
+    <!-- Person details -->
+    <string name="person_verify">Verify</string>
+    <string name="person_add_contact">Add to contacts</string>
+    <string name="person_favorite">Add to favorites</string>
+    <string name="person_unfavorite">Remove from favorites</string>
+    <string name="person_block">Block</string>
+    <string name="person_unblock">Unblock</string>
+    <string name="person_remove_contact">Remove contact</string>
+    <string name="person_safety_number">Safety number</string>
+    <string name="person_safety_number_help">Compare this number with %1$s in person to be sure no one is listening in.</string>
+    <string name="person_block_confirm_title">Block %1$s?</string>
+    <string name="person_block_confirm_body">%1$s won\'t be able to call or message you. They won\'t be told.</string>
+    <string name="person_blocked_label">Blocked</string>
+    <string name="person_address">Address: %1$s</string>
+
+    <!-- Verification -->
+    <string name="verify_title">Verify %1$s</string>
+    <string name="verify_instructions">Ask %1$s to open Verify on their device. You should both see the same code.</string>
+    <string name="verify_codes_match">Codes match</string>
+    <string name="verify_codes_differ">Codes don\'t match</string>
+    <string name="verify_mismatch_title">Don\'t trust this connection</string>
+    <string name="verify_mismatch_body">The codes are different. Someone may be between you and %1$s. Don\'t share anything sensitive, and try again on a network you trust.</string>
+    <string name="verify_done">%1$s is verified</string>
+    <string name="verify_connecting">Connecting securely…</string>
+    <string name="verify_unreachable">Couldn\'t reach %1$s. Make sure you\'re both on the same Wi-Fi.</string>
+    <string name="safety_code_label">Safety code</string>
+
+    <!-- Add by address / QR -->
+    <string name="address_title">Add by address</string>
+    <string name="address_label">IP address</string>
+    <string name="address_placeholder">192.168.1.24</string>
+    <string name="address_supporting">Use this when people don\'t show up automatically. Find the address on their "My code" screen.</string>
+    <string name="address_invalid">Enter an address like 192.168.1.24 or 192.168.1.24:47474</string>
+    <string name="address_connecting">Connecting…</string>
+    <string name="add_unreachable">Couldn\'t connect. Check the address and that you\'re on the same Wi-Fi.</string>
+    <string name="add_key_mismatch">This device doesn\'t match the code. It might not be who you think.</string>
+    <string name="add_invalid_code">That isn\'t a Zoocall code.</string>
+    <string name="add_self">That\'s your own code.</string>
+    <string name="add_added">%1$s added and verified</string>
+    <string name="my_code_title">My code</string>
+    <string name="my_code_body">Let someone scan this with Zoocall to add you as a verified contact.</string>
+    <string name="my_code_address">Your address: %1$s</string>
+    <string name="my_code_unavailable">Connect to Wi-Fi to show your code.</string>
+    <string name="my_code_qr_description">QR code for adding %1$s on Zoocall</string>
+
+    <!-- Chats -->
+    <string name="chats_empty_title">No messages yet</string>
+    <string name="chats_empty_body">Open someone in People and tap Message.</string>
+    <string name="chat_input_placeholder">Message</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_you">You: %1$s</string>
+    <string name="chat_offline_banner">%1$s is offline. Messages will be delivered when %1$s is back on the network.</string>
+    <string name="chat_typing">typing…</string>
+    <string name="chat_state_sending">Waiting to send</string>
+    <string name="chat_state_sent">Sent</string>
+    <string name="chat_state_delivered">Delivered</string>
+    <string name="chat_state_read">Read</string>
+    <string name="chat_today">Today</string>
+    <string name="chat_yesterday">Yesterday</string>
+    <string name="chat_not_contact_banner">%1$s isn\'t in your contacts.</string>
+    <string name="chat_delete_conversation">Delete conversation</string>
+    <string name="chat_voice_message">Voice message</string>
+    <string name="chat_record_voice">Record voice message</string>
+    <string name="chat_recording">Recording</string>
+    <string name="chat_cancel_recording">Cancel recording</string>
+    <string name="chat_send_voice">Send voice message</string>
+    <string name="chat_play_voice">Play voice message</string>
+    <string name="chat_pause_voice">Pause voice message</string>
+    <string name="chat_voice_description">Voice message, %1$s</string>
+    <string name="chat_mic_needed">Allow microphone access to record voice messages.</string>
+    <string name="chat_voice_in_call">You can\'t record a voice message during a call.</string>
+    <string name="chat_voice_too_short">Hold on a little longer. Voice messages need at least half a second.</string>
+    <string name="chat_voice_unavailable">Couldn\'t use the microphone. Another app may be using it.</string>
+
+    <!-- Recents -->
+    <string name="recents_empty_title">No calls yet</string>
+    <string name="recents_empty_body">Your call history stays on this device.</string>
+    <string name="recents_clear">Clear call history</string>
+    <string name="recents_clear_confirm">Clear all calls from history?</string>
+    <string name="recents_outgoing">Outgoing</string>
+    <string name="recents_incoming">Incoming</string>
+    <string name="recents_missed">Missed</string>
+    <string name="recents_declined">Declined</string>
+    <string name="recents_no_answer">No answer</string>
+    <string name="recents_call_back">Call back %1$s</string>
+    <string name="recents_audio">Voice call</string>
+    <string name="recents_video">Video call</string>
+
+    <!-- Calls -->
+    <string name="call_incoming_audio">Incoming voice call</string>
+    <string name="call_incoming_video">Incoming video call</string>
+    <string name="call_calling">Calling…</string>
+    <string name="call_ringing">Ringing…</string>
+    <string name="call_connecting">Connecting…</string>
+    <string name="call_reconnecting">Reconnecting…</string>
+    <string name="call_accept">Accept</string>
+    <string name="call_accept_audio">Accept as voice call</string>
+    <string name="call_decline">Decline</string>
+    <string name="call_end">End call</string>
+    <string name="call_mute">Mute microphone</string>
+    <string name="call_unmute">Unmute microphone</string>
+    <string name="call_camera_off">Turn camera off</string>
+    <string name="call_camera_on">Turn camera on</string>
+    <string name="call_flip_camera">Switch camera</string>
+    <string name="call_speaker">Audio output</string>
+    <string name="call_muted_label">Muted</string>
+    <string name="call_remote_muted">%1$s is muted</string>
+    <string name="call_remote_camera_off">%1$s turned the camera off</string>
+    <string name="call_quality">Connection quality: %1$d of 4</string>
+    <string name="call_encrypted">End-to-end encrypted</string>
+    <string name="call_duration">Call duration %1$s</string>
+    <string name="call_ended">Call ended</string>
+    <string name="call_end_declined">%1$s declined</string>
+    <string name="call_end_busy">%1$s is busy</string>
+    <string name="call_end_dnd">%1$s is in Do not disturb</string>
+    <string name="call_end_no_answer">No answer</string>
+    <string name="call_end_missed">Missed call</string>
+    <string name="call_end_cancelled">Call cancelled</string>
+    <string name="call_end_unreachable">%1$s isn\'t reachable right now</string>
+    <string name="call_end_network">Call dropped. Connection lost.</string>
+    <string name="call_end_media">Couldn\'t connect audio and video</string>
+    <string name="call_end_not_allowed">%1$s is unavailable</string>
+    <string name="call_already_in_call">You\'re already in a call</string>
+    <string name="call_key_mismatch">This device\'s identity changed. Verify %1$s before calling.</string>
+    <string name="call_blocked">Unblock %1$s to call</string>
+    <string name="call_mic_permission">Zoocall needs the microphone to make calls.</string>
+    <string name="call_camera_permission">Camera is off. Allow camera access to share video.</string>
+    <string name="call_again">Call again</string>
+    <string name="call_verified_warning">Not verified. Verify before sharing anything sensitive.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_profile">Profile</string>
+    <string name="settings_name">Name</string>
+    <string name="settings_role">Role</string>
+    <string name="settings_status">Status</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">System default</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_dynamic_color">Use colors from wallpaper</string>
+    <string name="settings_privacy">Privacy &amp; security</string>
+    <string name="settings_visibility">Who can see me</string>
+    <string name="settings_visibility_everyone">Everyone on this network</string>
+    <string name="settings_visibility_hidden">Hidden (contacts can still reach me)</string>
+    <string name="settings_allow_calls">Allow calls from</string>
+    <string name="settings_allow_everyone">Everyone</string>
+    <string name="settings_allow_contacts">Contacts only</string>
+    <string name="settings_allow_favorites">Favorites only</string>
+    <string name="settings_read_receipts">Send read receipts</string>
+    <string name="settings_my_fingerprint">Your safety tag</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_license">Free and open source (MIT). No ads, no tracking, no internet.</string>
+    <string name="settings_network">Network</string>
+    <string name="settings_addresses">Your addresses</string>
+    <string name="settings_no_network">Not connected to a local network</string>
+
+    <!-- Audio & video devices (desktop) -->
+    <string name="settings_audio_video">Audio &amp; video</string>
+    <string name="call_devices">Audio &amp; video devices</string>
+    <string name="device_microphone">Microphone</string>
+    <string name="device_speaker">Speaker</string>
+    <string name="device_camera">Camera</string>
+    <string name="device_change">Change %1$s</string>
+    <string name="device_system_default">System default</string>
+    <string name="device_system_default_named">System default (%1$s)</string>
+    <string name="device_none_found">No devices found. Check that one is connected.</string>
+    <string name="device_unavailable">%1$s isn\'t connected. Using the system default for now.</string>
+    <string name="device_test_mic">Test microphone</string>
+    <string name="device_stop_test">Stop test</string>
+    <string name="device_mic_level">Microphone level</string>
+    <string name="device_test_speaker">Play test sound</string>
+    <string name="device_preview_camera">Preview camera</string>
+    <string name="device_stop_preview">Stop preview</string>
+    <string name="device_tests_in_call">Tests aren\'t available during a call. You can still switch devices.</string>
+    <string name="device_mic_busy">Couldn\'t open the microphone. Another app may be using it.</string>
+    <string name="device_speaker_busy">Couldn\'t play on this speaker.</string>
+    <string name="device_camera_busy">Couldn\'t open the camera. Another app may be using it.</string>
+    <string name="device_notice_unavailable">%1$s was disconnected. Zoocall switched to the system default.</string>
+    <string name="device_notice_restored">%1$s is connected again and in use.</string>
+</resources>

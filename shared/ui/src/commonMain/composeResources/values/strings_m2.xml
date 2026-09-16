@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M2 strings (replies, reactions, files, search, requests, call extras). Same rules as strings.xml. -->
+<resources>
+    <!-- Chat: replies, reactions, actions -->
+    <string name="chat_reply">Reply</string>
+    <string name="chat_replying_to">Replying to %1$s</string>
+    <string name="chat_cancel_reply">Cancel reply</string>
+    <string name="chat_original_deleted">Original message deleted</string>
+    <string name="chat_react">React</string>
+    <string name="chat_remove_reaction">Remove reaction</string>
+    <string name="chat_reactions_description">Reactions: %1$s</string>
+    <string name="chat_copy">Copy</string>
+    <string name="chat_copied">Copied</string>
+    <string name="chat_delete_for_me">Delete for me</string>
+    <string name="chat_delete_confirm_title">Delete this message?</string>
+    <string name="chat_delete_confirm_body">It will be removed from this device only.</string>
+    <string name="chat_message_actions">Message options</string>
+
+    <!-- Chat: files -->
+    <string name="chat_attach_file">Send a file</string>
+    <string name="chat_file_description">File %1$s, %2$s</string>
+    <string name="chat_file_progress">%1$s of %2$s</string>
+    <string name="chat_file_download">Download</string>
+    <string name="chat_file_pause">Pause</string>
+    <string name="chat_file_resume">Resume</string>
+    <string name="chat_file_open">Open</string>
+    <string name="chat_file_save">Save as…</string>
+    <string name="chat_file_waiting">Waiting for %1$s to be online</string>
+    <string name="chat_file_failed">The file was damaged in transfer and was deleted.</string>
+    <string name="chat_file_retry">Try again</string>
+    <string name="chat_file_risky">This type of file can change your device. Open it only if you trust %1$s.</string>
+    <string name="chat_file_too_large">That file is too large to send.</string>
+    <string name="chat_file_unreadable">Couldn\'t read that file.</string>
+    <string name="chat_file_cant_open">No app on this device can open this file.</string>
+    <string name="chat_file_saved">Saved</string>
+
+    <!-- Chats: search and requests -->
+    <string name="chats_search">Search messages</string>
+    <string name="chats_search_no_results">No messages match "%1$s"</string>
+    <string name="chats_request_label">Message request</string>
+    <string name="chat_request_title">%1$s isn\'t in your contacts</string>
+    <string name="chat_request_body">Accept to reply and see their files. Block if you don\'t know them.</string>
+    <string name="chat_request_accept">Accept</string>
+    <string name="chat_request_block">Block</string>
+
+    <!-- Calls: hold, upgrade, waiting, quick replies, info -->
+    <string name="call_hold">Hold</string>
+    <string name="call_resume">Resume</string>
+    <string name="call_on_hold">On hold</string>
+    <string name="call_remote_on_hold">%1$s put the call on hold</string>
+    <string name="call_upgrade_request">Switch to video</string>
+    <string name="call_upgrade_waiting">Asking %1$s to turn on video…</string>
+    <string name="call_upgrade_cancel">Cancel</string>
+    <string name="call_upgrade_incoming">%1$s wants to switch to video</string>
+    <string name="call_upgrade_accept">Turn on video</string>
+    <string name="call_upgrade_not_now">Not now</string>
+    <string name="call_upgrade_declined">%1$s is staying on voice</string>
+    <string name="call_upgrade_no_answer">No answer. Still a voice call.</string>
+    <string name="call_waiting_title">%1$s is calling</string>
+    <string name="call_waiting_end_accept">End and answer</string>
+    <string name="call_waiting_decline">Decline</string>
+    <string name="call_decline_message">Decline with message</string>
+    <string name="call_quick_reply_1">Can\'t talk now. I\'ll call you back.</string>
+    <string name="call_quick_reply_2">I\'ll call you back in 5 minutes.</string>
+    <string name="call_quick_reply_3">I\'m in a meeting.</string>
+    <string name="call_quick_reply_custom">Write your own…</string>
+    <string name="call_quick_reply_send">Decline and send</string>
+    <string name="call_declined_with">"%1$s"</string>
+    <string name="call_info">Call info</string>
+    <string name="call_stats_audio_codec">Audio codec</string>
+    <string name="call_stats_video_codec">Video codec</string>
+    <string name="call_stats_rtt">Round-trip time</string>
+    <string name="call_stats_loss">Packet loss</string>
+    <string name="call_stats_bitrate">Bitrate (send / receive)</string>
+    <string name="call_stats_video">Incoming video</string>
+    <string name="call_stats_unknown">Not available yet</string>
+
+    <!-- Settings -->
+    <string name="settings_status_text">Status message</string>
+    <string name="settings_status_text_placeholder">For example "At the front desk"</string>
+    <string name="settings_blocked">Blocked people</string>
+    <string name="settings_blocked_empty">No one is blocked.</string>
+    <string name="settings_start_at_login">Start Zoocall when I sign in</string>
+    <string name="settings_start_at_login_body">Zoocall starts in the tray so calls can reach you.</string>
+    <string name="settings_firewall">Windows Firewall</string>
+    <string name="settings_firewall_ok">Zoocall is allowed on private networks.</string>
+    <string name="settings_firewall_missing">Windows Firewall may block calls to this PC.</string>
+    <string name="settings_firewall_allow">Allow Zoocall</string>
+    <string name="settings_firewall_failed">The rule wasn\'t added. Try again and approve the Windows prompt.</string>
+</resources>

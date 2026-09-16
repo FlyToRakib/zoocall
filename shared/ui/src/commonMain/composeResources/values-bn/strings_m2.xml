@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_reply">উত্তর দিন</string>
+    <string name="chat_replying_to">%1$s-কে উত্তর দিচ্ছেন</string>
+    <string name="chat_cancel_reply">উত্তর বাতিল করুন</string>
+    <string name="chat_original_deleted">মূল বার্তাটি মুছে ফেলা হয়েছে</string>
+    <string name="chat_react">প্রতিক্রিয়া দিন</string>
+    <string name="chat_remove_reaction">প্রতিক্রিয়া সরান</string>
+    <string name="chat_reactions_description">প্রতিক্রিয়া: %1$s</string>
+    <string name="chat_copy">কপি করুন</string>
+    <string name="chat_copied">কপি হয়েছে</string>
+    <string name="chat_delete_for_me">শুধু আমার জন্য মুছুন</string>
+    <string name="chat_delete_confirm_title">বার্তাটি মুছবেন?</string>
+    <string name="chat_delete_confirm_body">এটি শুধু এই ডিভাইস থেকে মুছে যাবে।</string>
+    <string name="chat_message_actions">বার্তার অপশন</string>
+
+    <string name="chat_attach_file">ফাইল পাঠান</string>
+    <string name="chat_file_description">ফাইল %1$s, %2$s</string>
+    <string name="chat_file_progress">%2$s-এর মধ্যে %1$s</string>
+    <string name="chat_file_download">ডাউনলোড</string>
+    <string name="chat_file_pause">থামান</string>
+    <string name="chat_file_resume">আবার শুরু করুন</string>
+    <string name="chat_file_open">খুলুন</string>
+    <string name="chat_file_save">এভাবে সংরক্ষণ করুন…</string>
+    <string name="chat_file_waiting">%1$s অনলাইনে আসার অপেক্ষায়</string>
+    <string name="chat_file_failed">পাঠানোর সময় ফাইলটি নষ্ট হয়ে গেছে, তাই মুছে ফেলা হয়েছে।</string>
+    <string name="chat_file_retry">আবার চেষ্টা করুন</string>
+    <string name="chat_file_risky">এই ধরনের ফাইল আপনার ডিভাইসে পরিবর্তন আনতে পারে। %1$s-কে বিশ্বাস করলে তবেই খুলুন।</string>
+    <string name="chat_file_too_large">ফাইলটি পাঠানোর জন্য অনেক বড়।</string>
+    <string name="chat_file_unreadable">ফাইলটি পড়া যায়নি।</string>
+    <string name="chat_file_cant_open">এই ডিভাইসে ফাইলটি খোলার মতো কোনো অ্যাপ নেই।</string>
+    <string name="chat_file_saved">সংরক্ষিত হয়েছে</string>
+
+    <string name="chats_search">বার্তা খুঁজুন</string>
+    <string name="chats_search_no_results">"%1$s"-এর সাথে মেলে এমন কোনো বার্তা নেই</string>
+    <string name="chats_request_label">বার্তার অনুরোধ</string>
+    <string name="chat_request_title">%1$s আপনার পরিচিতিতে নেই</string>
+    <string name="chat_request_body">উত্তর দিতে ও ফাইল দেখতে গ্রহণ করুন। না চিনলে ব্লক করুন।</string>
+    <string name="chat_request_accept">গ্রহণ করুন</string>
+    <string name="chat_request_block">ব্লক করুন</string>
+
+    <string name="call_hold">হোল্ড</string>
+    <string name="call_resume">চালু করুন</string>
+    <string name="call_on_hold">হোল্ডে আছে</string>
+    <string name="call_remote_on_hold">%1$s কলটি হোল্ডে রেখেছেন</string>
+    <string name="call_upgrade_request">ভিডিওতে যান</string>
+    <string name="call_upgrade_waiting">%1$s-কে ভিডিও চালু করতে বলা হচ্ছে…</string>
+    <string name="call_upgrade_cancel">বাতিল</string>
+    <string name="call_upgrade_incoming">%1$s ভিডিওতে যেতে চান</string>
+    <string name="call_upgrade_accept">ভিডিও চালু করুন</string>
+    <string name="call_upgrade_not_now">এখন নয়</string>
+    <string name="call_upgrade_declined">%1$s ভয়েস কলেই থাকছেন</string>
+    <string name="call_upgrade_no_answer">কোনো উত্তর নেই। এখনও ভয়েস কল।</string>
+    <string name="call_waiting_title">%1$s কল করছেন</string>
+    <string name="call_waiting_end_accept">কেটে দিয়ে ধরুন</string>
+    <string name="call_waiting_decline">প্রত্যাখ্যান</string>
+    <string name="call_decline_message">বার্তা দিয়ে প্রত্যাখ্যান</string>
+    <string name="call_quick_reply_1">এখন কথা বলতে পারছি না। পরে কল করব।</string>
+    <string name="call_quick_reply_2">৫ মিনিট পরে কল করছি।</string>
+    <string name="call_quick_reply_3">আমি মিটিংয়ে আছি।</string>
+    <string name="call_quick_reply_custom">নিজে লিখুন…</string>
+    <string name="call_quick_reply_send">প্রত্যাখ্যান করে পাঠান</string>
+    <string name="call_declined_with">"%1$s"</string>
+    <string name="call_info">কলের তথ্য</string>
+    <string name="call_stats_audio_codec">অডিও কোডেক</string>
+    <string name="call_stats_video_codec">ভিডিও কোডেক</string>
+    <string name="call_stats_rtt">রাউন্ড-ট্রিপ সময়</string>
+    <string name="call_stats_loss">প্যাকেট হারানো</string>
+    <string name="call_stats_bitrate">বিটরেট (পাঠানো / গ্রহণ)</string>
+    <string name="call_stats_video">আসা ভিডিও</string>
+    <string name="call_stats_unknown">এখনও পাওয়া যায়নি</string>
+
+    <string name="settings_status_text">স্ট্যাটাস বার্তা</string>
+    <string name="settings_status_text_placeholder">যেমন "ফ্রন্ট ডেস্কে আছি"</string>
+    <string name="settings_blocked">ব্লক করা ব্যক্তিরা</string>
+    <string name="settings_blocked_empty">কাউকে ব্লক করা হয়নি।</string>
+    <string name="settings_start_at_login">সাইন ইন করলে Zoocall চালু করুন</string>
+    <string name="settings_start_at_login_body">Zoocall ট্রেতে চালু থাকবে, যাতে কল আপনার কাছে পৌঁছায়।</string>
+    <string name="settings_firewall">উইন্ডোজ ফায়ারওয়াল</string>
+    <string name="settings_firewall_ok">প্রাইভেট নেটওয়ার্কে Zoocall অনুমোদিত।</string>
+    <string name="settings_firewall_missing">উইন্ডোজ ফায়ারওয়াল এই পিসিতে কল আটকাতে পারে।</string>
+    <string name="settings_firewall_allow">Zoocall-কে অনুমতি দিন</string>
+    <string name="settings_firewall_failed">নিয়মটি যোগ হয়নি। আবার চেষ্টা করে উইন্ডোজের প্রম্পটে অনুমতি দিন।</string>
+</resources>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Network Doctor -->
+    <string name="doctor_title">নেটওয়ার্ক ডাক্তার</string>
+    <string name="doctor_run">নেটওয়ার্ক ডাক্তার চালান</string>
+    <string name="doctor_settings_body">কেন অন্যরা আপনাকে দেখতে পাচ্ছে না জানুন</string>
+    <string name="doctor_check_again">আবার পরীক্ষা করুন</string>
+    <string name="doctor_checking">আপনার নেটওয়ার্ক পরীক্ষা করা হচ্ছে…</string>
+    <string name="doctor_all_good">সবকিছু ঠিক আছে</string>
+    <string name="doctor_all_good_body">কেউ এখনও আপনাকে দেখতে না পেলে তাকেও নেটওয়ার্ক ডাক্তার চালাতে বলুন।</string>
+    <string name="doctor_issues">কিছু বিষয়ে মনোযোগ দরকার</string>
+    <string name="doctor_issues_body">নিচের ধাপগুলো অনুসরণ করে আবার পরীক্ষা করুন।</string>
+    <string name="doctor_status_ok">ঠিক আছে</string>
+    <string name="doctor_status_warning">সতর্কতা</string>
+    <string name="doctor_status_problem">সমস্যা</string>
+    <string name="doctor_your_address">আপনার ঠিকানা</string>
+    <string name="doctor_adapter">%1$s ব্যবহার হচ্ছে</string>
+    <string name="doctor_adapter_wifi">Wi-Fi</string>
+    <string name="doctor_adapter_ethernet">ইথারনেট</string>
+    <string name="doctor_adapter_hotspot">ফোন হটস্পট</string>
+    <string name="doctor_ignored_adapters">ব্যবহার হচ্ছে না (ভার্চুয়াল অ্যাডাপ্টার): %1$s</string>
+    <string name="doctor_open_settings">সেটিংস খুলুন</string>
+    <string name="doctor_fix_failed">কাজ হয়নি। সিস্টেম সেটিংস থেকে এটি পরিবর্তন করতে পারেন।</string>
+
+    <string name="doctor_network_ok">লোকাল নেটওয়ার্কে যুক্ত</string>
+    <string name="doctor_network_problem">Wi-Fi বা ইথারনেটে যুক্ত নয়</string>
+    <string name="doctor_network_fix">যাদের সাথে কথা বলতে চান তাদের একই Wi-Fi বা নেটওয়ার্কে যুক্ত হোন। মোবাইল ডেটা দিয়ে তাদের কাছে পৌঁছানো যায় না।</string>
+    <string name="doctor_listening_ok">%1$s পোর্টে কলের জন্য প্রস্তুত</string>
+    <string name="doctor_listening_problem">Zoocall সংযোগ গ্রহণ করছে না</string>
+    <string name="doctor_listening_fix">Zoocall আবার চালু করুন। বারবার হলে অন্য কোনো অ্যাপ হয়তো পোর্টটি ব্যবহার করছে।</string>
+    <string name="doctor_vpn_ok">কোনো VPN বাধা দিচ্ছে না</string>
+    <string name="doctor_vpn_warning">VPN চালু আছে</string>
+    <string name="doctor_vpn_fix">VPN অন্য ডিভাইস লুকিয়ে ফেলতে পারে। VPN সেটিংসে লোকাল নেটওয়ার্ক অ্যাক্সেস চালু করুন, অথবা Zoocall ব্যবহারের সময় VPN বন্ধ রাখুন।</string>
+    <string name="doctor_discovery_ok">কাছাকাছি %1$sটি Zoocall ডিভাইস পাওয়া গেছে</string>
+    <string name="doctor_discovery_none">এখনও কাছাকাছি কাউকে পাওয়া যায়নি</string>
+    <string name="doctor_discovery_none_fix">অন্যরা একই নেটওয়ার্কে Zoocall খোলা রেখেছে কিনা দেখুন। গেস্ট Wi-Fi প্রায়ই ডিভাইসগুলোকে একে অপরের কাছ থেকে লুকিয়ে রাখে।</string>
+    <string name="doctor_discovery_blocked">এই নেটওয়ার্ক ডিভাইস খোঁজা বন্ধ রেখেছে</string>
+    <string name="doctor_discovery_blocked_fix">সরাসরি সংযোগ এখনও কাজ করে। QR কোড বা ঠিকানা দিয়ে মানুষ যোগ করুন, অথবা IT-কে মাল্টিকাস্ট (mDNS) চালু করতে বলুন।</string>
+    <string name="doctor_reach_ok">আপনার পরিচিতদের কাছে পৌঁছানো যাচ্ছে</string>
+    <string name="doctor_reach_problem">আপনার পরিচিতদের কাছে পৌঁছানো যাচ্ছে না</string>
+    <string name="doctor_reach_fix">এই নেটওয়ার্ক হয়তো ডিভাইসগুলোকে আলাদা রাখে (গেস্ট বা অফিস Wi-Fi-তে সাধারণ)। অন্য নেটওয়ার্ক চেষ্টা করুন, অথবা IT-কে ক্লায়েন্ট আইসোলেশন বন্ধ করতে বলুন।</string>
+    <string name="doctor_subnet_warning">পরিচিতরা হয়তো অন্য নেটওয়ার্ক অংশে আছে</string>
+    <string name="doctor_subnet_fix">আপনার ঠিকানা %1$s, কিন্তু একজন পরিচিতকে শেষবার %2$s-এ দেখা গেছে। দুটি ডিভাইসই একই নাম ও ব্যান্ডের Wi-Fi-তে যুক্ত করুন।</string>
+    <string name="doctor_profile_ok">“%1$s” একটি প্রাইভেট নেটওয়ার্ক</string>
+    <string name="doctor_profile_problem">উইন্ডোজ “%1$s”-কে পাবলিক নেটওয়ার্ক ধরছে</string>
+    <string name="doctor_profile_fix">পাবলিক নেটওয়ার্কে উইন্ডোজ ডিভাইস খোঁজা ও আসা কল বন্ধ রাখে। নেটওয়ার্ক সেটিংসে এই নেটওয়ার্কের প্রপার্টিজ খুলে প্রাইভেট বেছে নিন।</string>
+    <string name="doctor_firewall_ok">ফায়ারওয়াল Zoocall-কে অনুমতি দেয়</string>
+    <string name="doctor_firewall_problem">ফায়ারওয়াল আসা কল আটকাতে পারে</string>
+    <string name="doctor_firewall_fix">প্রাইভেট নেটওয়ার্কে Zoocall-কে অনুমতি দিন। উইন্ডোজ অনুমতি চাইবে।</string>
+    <string name="doctor_battery_ok">ব্যাটারি সাশ্রয় কল থামাবে না</string>
+    <string name="doctor_battery_warning">ব্যাটারি সাশ্রয় কল বাজা বন্ধ করতে পারে</string>
+    <string name="doctor_battery_fix">Zoocall-কে ব্যাকগ্রাউন্ডে চলতে দিন যাতে স্ক্রিন বন্ধ থাকলেও কল বাজে।</string>
+
+    <!-- Knock -->
+    <string name="knock_action">নক করুন</string>
+    <string name="knock_action_body">কথা বলার সময় আছে কিনা জিজ্ঞেস করুন</string>
+    <string name="knock_sent">নক করা হয়েছে। %1$s এক ট্যাপে উত্তর দিতে পারবেন।</string>
+    <string name="knock_unreachable">%1$s-এর কাছে এখন পৌঁছানো যাচ্ছে না</string>
+    <string name="knock_not_supported">নক পেতে %1$s-এর নতুন Zoocall দরকার</string>
+    <string name="knock_blocked">নক করতে %1$s-কে আনব্লক করুন</string>
+    <string name="knock_received">%1$s নক করেছেন</string>
+    <string name="knock_default_text">আপনার কি সময় আছে?</string>
+    <string name="knock_reply_call_me">কল করুন</string>
+    <string name="knock_reply_two_minutes">২ মিনিট পরে</string>
+    <string name="knock_reply_busy">ব্যস্ত</string>
+    <string name="knock_call">%1$s-কে কল করুন</string>
+    <string name="knock_dismiss">বন্ধ করুন</string>
+    <string name="knock_reply_failed">উত্তর পাঠানো যায়নি। %1$s হয়তো চলে গেছেন।</string>
+    <string name="knock_replied_call_me">%1$s: আমাকে কল করুন</string>
+    <string name="knock_replied_two_minutes">%1$s ২ মিনিট পরে ফ্রি হবেন</string>
+    <string name="knock_replied_busy">%1$s এখন ব্যস্ত</string>
+    <string name="knock_call_back">কল</string>
+
+    <!-- Sounds & alerts -->
+    <string name="settings_sounds">শব্দ ও সতর্কতা</string>
+    <string name="sounds_ringtone">রিংটোন</string>
+    <string name="sounds_ringtone_change">রিংটোন পরিবর্তন করুন</string>
+    <string name="sounds_ringtone_default">ডিফল্ট</string>
+    <string name="sounds_ringtone_default_named">ডিফল্ট (%1$s)</string>
+    <string name="sounds_ringtone_silent">নীরব</string>
+    <string name="sounds_ringtone_classic">ক্লাসিক</string>
+    <string name="sounds_ringtone_gentle">কোমল</string>
+    <string name="sounds_ringtone_bright">উজ্জ্বল</string>
+    <string name="sounds_vibrate">রিং হওয়ার সময় ভাইব্রেট</string>
+    <string name="sounds_call_sounds">কল ও নকের শব্দ</string>
+    <string name="sounds_call_sounds_body">কল সংযুক্ত বা শেষ হলে টোন, কল ওয়েটিং বিপ এবং নকের শব্দ</string>
+    <string name="sounds_flash">আসা কলে ফ্ল্যাশ সতর্কতা</string>
+    <string name="sounds_flash_body">কল বাজার সময় স্ক্রিন জ্বলে ওঠে, আর ফোনে ক্যামেরার লাইটও</string>
+
+    <!-- Push-to-talk -->
+    <string name="ptt_action">পুশ-টু-টক</string>
+    <string name="ptt_action_body">বোতাম চেপে ধরে সঙ্গে সঙ্গে কথা বলুন, রিং ছাড়াই</string>
+    <string name="ptt_allow">পুশ-টু-টকের অনুমতি দিন</string>
+    <string name="ptt_allow_body">%1$s রিং ছাড়াই সঙ্গে সঙ্গে আপনার সাথে কথা বলতে পারবেন</string>
+    <string name="ptt_not_supported">পুশ-টু-টকের জন্য %1$s-এর নতুন Zoocall দরকার</string>
+    <string name="ptt_not_allowed">%1$s আপনার জন্য পুশ-টু-টক চালু করেননি</string>
+    <string name="ptt_title">পুশ-টু-টক</string>
+    <string name="ptt_connecting">সংযোগ হচ্ছে…</string>
+    <string name="ptt_idle">কথা বলতে চেপে ধরুন</string>
+    <string name="ptt_idle_desktop">কথা বলতে বোতাম বা Space চেপে ধরুন</string>
+    <string name="ptt_you_talking">আপনি কথা বলছেন</string>
+    <string name="ptt_remote_talking">%1$s কথা বলছেন</string>
+    <string name="ptt_channel_busy">%1$s কথা বলছেন। শেষ হওয়া পর্যন্ত অপেক্ষা করুন।</string>
+    <string name="ptt_talk">কথা বলুন</string>
+    <string name="ptt_stop">কথা বলা থামান</string>
+    <string name="ptt_leave">বের হন</string>
+    <string name="ptt_ended">পুশ-টু-টক শেষ</string>
+
+    <!-- Group calls -->
+    <string name="call_add_people">মানুষ যোগ করুন</string>
+    <string name="call_add_title">কলে যোগ করুন</string>
+    <string name="call_add_none">কাছাকাছি আর কেউ এখন যোগ দিতে পারবেন না</string>
+    <string name="call_add_invited">%1$s-কে কল করা হচ্ছে…</string>
+    <string name="call_add_full">কলে আর জায়গা নেই</string>
+    <string name="call_add_not_supported">গ্রুপ কলের জন্য %1$s-এর নতুন Zoocall দরকার</string>
+    <string name="call_add_unreachable">%1$s-এর কাছে এখন পৌঁছানো যাচ্ছে না</string>
+    <string name="call_add_declined">%1$s প্রত্যাখ্যান করেছেন</string>
+    <string name="call_add_busy">%1$s অন্য কলে আছেন</string>
+    <string name="call_add_no_answer">%1$s উত্তর দেননি</string>
+    <string name="call_group_people">%1$s জন</string>
+    <string name="call_group_with">%1$s-এর সাথে গ্রুপ কল</string>
+    <string name="call_member_calling">কল করা হচ্ছে…</string>
+    <string name="call_member_connecting">সংযোগ হচ্ছে…</string>
+    <string name="call_member_reconnecting">আবার সংযোগ হচ্ছে…</string>
+    <string name="call_member_muted">মিউট</string>
+    <string name="call_member_audio_only">শুধু অডিও</string>
+    <string name="call_member_sharing">স্ক্রিন শেয়ার করছেন</string>
+
+    <!-- Call transfer -->
+    <string name="call_transfer">কল ট্রান্সফার করুন</string>
+    <string name="call_transfer_title">যাঁর কাছে ট্রান্সফার করবেন</string>
+    <string name="call_transferring">%1$s-কে কল নিতে ডাকা হচ্ছে। তিনি যোগ দিলে আপনি কল থেকে বেরিয়ে যাবেন।</string>
+
+    <!-- Call recording -->
+    <string name="call_record">কল রেকর্ড করুন</string>
+    <string name="call_record_stop">রেকর্ডিং বন্ধ করুন</string>
+    <string name="call_record_confirm_title">এই কল রেকর্ড করবেন?</string>
+    <string name="call_record_confirm_body">কলে থাকা সবাই দেখবেন যে আপনি রেকর্ড করছেন এবং একটি শব্দ শুনবেন। রেকর্ডিং এই ডিভাইসেই এনক্রিপ্ট করা অবস্থায় থাকবে।</string>
+    <string name="call_record_action">রেকর্ড করুন</string>
+    <string name="call_recording_banner">আপনি এই কল রেকর্ড করছেন</string>
+    <string name="call_recorded_by_others">এই কল রেকর্ড করা হচ্ছে</string>
+    <string name="recents_recorded">রেকর্ড করা</string>
+    <string name="recents_recording_save">%1$s-এর সঙ্গে কলের রেকর্ডিং সেভ করুন</string>
+
+    <!-- Screen sharing -->
+    <string name="call_share_screen">স্ক্রিন শেয়ার</string>
+    <string name="call_stop_sharing">শেয়ার বন্ধ করুন</string>
+    <string name="call_share_title">আপনার স্ক্রিন শেয়ার করুন</string>
+    <string name="call_share_screens">স্ক্রিন</string>
+    <string name="call_share_windows">উইন্ডো</string>
+    <string name="call_share_none">শেয়ার করার মতো কিছু পাওয়া যায়নি</string>
+    <string name="call_share_failed">শেয়ার করা যায়নি। অন্য স্ক্রিন বা উইন্ডো চেষ্টা করুন।</string>
+    <string name="call_sharing_banner">আপনি আপনার স্ক্রিন শেয়ার করছেন</string>
+    <string name="call_remote_sharing">%1$s একটি স্ক্রিন শেয়ার করছেন</string>
+
+    <!-- Contact groups and announcements -->
+    <string name="groups_section">গ্রুপ</string>
+    <string name="group_new">নতুন গ্রুপ</string>
+    <string name="group_edit">গ্রুপ সম্পাদনা</string>
+    <string name="group_name">গ্রুপের নাম</string>
+    <string name="group_members">সদস্য</string>
+    <string name="group_no_contacts">আগে মানুষদের পরিচিতি হিসেবে সংরক্ষণ করুন, তারপর গ্রুপে রাখুন।</string>
+    <string name="group_empty_members">এই গ্রুপে এখনও কেউ নেই</string>
+    <string name="group_create">তৈরি করুন</string>
+    <string name="group_save">সংরক্ষণ</string>
+    <string name="group_people_online">%1$s জন · %2$s জন অনলাইনে</string>
+    <string name="group_delete">গ্রুপ মুছুন</string>
+    <string name="group_delete_confirm">“%1$s” মুছবেন? এর মানুষেরা আপনার পরিচিতিতে থাকবেন।</string>
+    <string name="group_call">কল</string>
+    <string name="group_video">ভিডিও</string>
+    <string name="group_ptt">কথা বলুন</string>
+    <string name="group_announce">ঘোষণা</string>
+    <string name="group_announce_title">%1$s-এ ঘোষণা</string>
+    <string name="group_announce_hint">৫ মিনিটে মিটিং</string>
+    <string name="group_announce_send">পাঠান</string>
+    <string name="group_announce_record">ভয়েস ঘোষণা রেকর্ড করুন</string>
+    <string name="group_announce_stop">থামিয়ে পাঠান</string>
+    <string name="group_announce_sent">%1$s জনকে ঘোষণা পাঠানো হয়েছে</string>
+    <string name="group_nobody_reachable">এই গ্রুপের কারও কাছে এখন পৌঁছানো যাচ্ছে না</string>
+    <string name="announcement_label">ঘোষণা</string>
+
+    <!-- Live captions -->
+    <string name="call_live_captions">লাইভ ক্যাপশন</string>
+    <string name="settings_live_captions_body">মানুষ যা বলছেন আপনার ডিভাইস নিজেই তা লিখে দেখায়</string>
+
+    <!-- Voice and camera effects -->
+    <string name="settings_strong_ns">শক্তিশালী নয়েজ কমানো</string>
+    <string name="settings_strong_ns_body">ফ্যান বা টাইপিংয়ের মতো আরও বেশি পেছনের শব্দ সরায়। কণ্ঠ একটু চাপা শোনাতে পারে।</string>
+    <string name="settings_camera_effects">ক্যামেরা ও মাইক্রোফোন ইফেক্ট</string>
+    <string name="settings_camera_effects_body">আপনার ডিভাইসে থাকলে ব্যাকগ্রাউন্ড ব্লার ও ভয়েস ফোকাস</string>
+
+    <!-- Linked devices -->
+    <string name="person_linked_device">এটি আমার ডিভাইস</string>
+    <string name="person_linked_device_body">নিজের ফোন ও কম্পিউটার লিংক করুন, যাতে যেকোনো একটিতে কল এলে দুটিতেই রিং হয়। দুই ডিভাইসের Zoocall-এই এটি চালু করুন।</string>
+    <string name="person_linked_device_waiting">এবার %1$s-এর Zoocall-এও “এটি আমার ডিভাইস” চালু করুন</string>
+    <string name="person_linked_device_on">লিংক হয়েছে। যেকোনো ডিভাইসে কল এলে দুটিতেই রিং হবে।</string>
+    <string name="call_end_answered_elsewhere">অন্য ডিভাইসে ধরা হয়েছে</string>
+
+    <!-- Desk intercom -->
+    <string name="settings_desk_intercom">ডেস্ক ইন্টারকম</string>
+    <string name="settings_desk_intercom_body">আপনার অনুমতি দেওয়া পরিচিতরা রিং ছাড়াই এই কম্পিউটারে সরাসরি অডিও লাইন খুলতে পারবেন। সবসময় একটি চাইম শোনা যাবে ও ব্যানার দেখা যাবে।</string>
+    <string name="intercom_action">ইন্টারকম</string>
+    <string name="intercom_action_body">এখনই তাঁর ডেস্কে কথা বলুন, শুধু অডিও</string>
+    <string name="intercom_allow">ইন্টারকম অনুমতি দিন</string>
+    <string name="intercom_allow_body">%1$s রিং ছাড়াই এই কম্পিউটারে সরাসরি অডিও লাইন খুলতে পারবেন</string>
+    <string name="intercom_not_supported">ইন্টারকমের জন্য %1$s-এর নতুন Zoocall দরকার</string>
+    <string name="call_intercom_banner">ইন্টারকম · আপনার মাইক্রোফোন চালু আছে</string>
+
+    <!-- Disappearing messages -->
+    <string name="chat_disappearing">অদৃশ্য হওয়া মেসেজ</string>
+    <string name="chat_disappearing_body">আপনার বেছে নেওয়া সময় পরে এই চ্যাটের নতুন মেসেজ দুই ডিভাইস থেকেই মুছে যাবে। তার আগে কেউ চাইলে কপি করতে বা ছবি তুলে রাখতে পারেন।</string>
+    <string name="chat_disappearing_on">অদৃশ্য হওয়া মেসেজ: %1$s</string>
+    <string name="chat_disappearing_off">অদৃশ্য হওয়া মেসেজ: বন্ধ</string>
+    <string name="chat_disappearing_done">হয়েছে</string>
+    <string name="disappear_off">বন্ধ</string>
+    <string name="disappear_hour">১ ঘণ্টা</string>
+    <string name="disappear_day">১ দিন</string>
+    <string name="disappear_week">১ সপ্তাহ</string>
+
+    <!-- App lock -->
+    <string name="settings_app_lock">অ্যাপ লক</string>
+    <string name="settings_app_lock_body_device">Zoocall খুলতে আঙুলের ছাপ, মুখ বা স্ক্রিন লক ব্যবহার করুন। লক থাকলেও কল রিং হবে।</string>
+    <string name="settings_app_lock_body_passcode">Zoocall খুলতে পাসকোড চাওয়া হবে। লক থাকলেও কল রিং হবে। পাসকোড ভুলে গেলে তা আর উদ্ধার করা যায় না।</string>
+    <string name="lock_title">Zoocall লক করা আছে</string>
+    <string name="lock_prompt_subtitle">Zoocall খুলতে নিশ্চিত করুন যে এটি আপনি</string>
+    <string name="lock_unlock">আনলক করুন</string>
+    <string name="lock_passcode">পাসকোড</string>
+    <string name="lock_wrong">পাসকোড ভুল</string>
+    <string name="lock_wait">অনেকবার চেষ্টা হয়েছে। %1$s সেকেন্ড পরে আবার চেষ্টা করুন।</string>
+    <string name="lock_needs_screen_lock">আগে এই ডিভাইসে একটি স্ক্রিন লক চালু করুন</string>
+    <string name="lock_set_title">একটি পাসকোড বেছে নিন</string>
+    <string name="lock_set_confirm">আবার লিখুন</string>
+    <string name="lock_set_too_short">কমপক্ষে ৪টি অক্ষর দিন</string>
+    <string name="lock_set_mismatch">পাসকোড দুটি মিলছে না</string>
+    <string name="lock_save">চালু করুন</string>
+    <string name="lock_turn_off_title">অ্যাপ লক বন্ধ করুন</string>
+    <string name="lock_turn_off">বন্ধ করুন</string>
+
+    <!-- Encrypted backup -->
+    <string name="settings_backup">ব্যাকআপ</string>
+    <string name="backup_export">চ্যাট ও পরিচিতি এক্সপোর্ট করুন</string>
+    <string name="backup_export_body">নতুন ডিভাইসে নিতে পাসফ্রেজ দিয়ে সুরক্ষিত একটি ফাইল সেভ করুন। আপনার পরিচয় কী এখানেই থাকবে, তাই পরিচিতরা নতুন সেফটি কোড দেখবেন।</string>
+    <string name="backup_restore">ব্যাকআপ থেকে ফিরিয়ে আনুন</string>
+    <string name="backup_restore_body">Zoocall ব্যাকআপ ফাইল থেকে পরিচিতি, গ্রুপ ও চ্যাট ফিরিয়ে আনুন</string>
+    <string name="backup_passphrase">পাসফ্রেজ</string>
+    <string name="backup_passphrase_again">আবার লিখুন</string>
+    <string name="backup_passphrase_hint">কমপক্ষে ৮টি অক্ষর দিন। পাসফ্রেজ ছাড়া কেউই ব্যাকআপ খুলতে পারবে না।</string>
+    <string name="backup_too_short">কমপক্ষে ৮টি অক্ষর দিন</string>
+    <string name="backup_mismatch">পাসফ্রেজ দুটি মিলছে না</string>
+    <string name="backup_export_action">এক্সপোর্ট</string>
+    <string name="backup_restore_action">ফিরিয়ে আনুন</string>
+    <string name="backup_working">কাজ চলছে…</string>
+    <string name="backup_saved">ব্যাকআপ সেভ হয়েছে</string>
+    <string name="backup_export_failed">ব্যাকআপ তৈরি করা যায়নি</string>
+    <string name="backup_restored">%1$sটি পরিচিতি ও %2$sটি মেসেজ ফিরিয়ে আনা হয়েছে</string>
+    <string name="backup_wrong_passphrase">পাসফ্রেজ ভুল</string>
+    <string name="backup_not_a_backup">ফাইলটি Zoocall ব্যাকআপ নয়</string>
+    <string name="backup_damaged">ব্যাকআপটি নষ্ট বা অসম্পূর্ণ</string>
+    <string name="backup_unreadable">ফাইলটি পড়া যায়নি</string>
+
+    <!-- Group chats -->
+    <string name="group_chat_action">চ্যাট</string>
+    <string name="group_chat_people">%1$s জন</string>
+    <string name="group_chat_options">গ্রুপ চ্যাটের অপশন</string>
+    <string name="group_chat_leave">গ্রুপ চ্যাট ছেড়ে দিন</string>
+    <string name="group_chat_leave_confirm">“%1$s” থেকে আর নতুন মেসেজ পাবেন না। আগের মেসেজগুলো এই ডিভাইসে থেকে যাবে।</string>
+    <string name="group_chat_leave_action">ছেড়ে দিন</string>
+    <string name="group_chat_delivered">%2$s জনের মধ্যে %1$s জনের কাছে পৌঁছেছে</string>
+    <string name="group_chat_read">%2$s জনের মধ্যে %1$s জন পড়েছেন</string>
+    <string name="group_chat_empty">%1$s-এর সবাইকে হ্যালো বলুন</string>
+    <string name="group_chat_too_big">গ্রুপ চ্যাটে সর্বোচ্চ ৩২ জন থাকতে পারেন</string>
+    <string name="chats_group_sender">%1$s: %2$s</string>
+
+    <!-- Private discovery -->
+    <string name="settings_visibility_contacts">শুধু পরিচিতরা (অপরিচিতরা আপনাকে দেখতে পাবে না)</string>
+
+    <!-- Desktop shell (tray, windows, system notifications) -->
+    <string name="shell_already_running">Zoocall আগে থেকেই চলছে। সিস্টেম ট্রেতে দেখুন।</string>
+    <string name="shell_tray_open">Zoocall খুলুন</string>
+    <string name="shell_tray_quit">Zoocall বন্ধ করুন</string>
+    <string name="shell_incoming_call_window">আগত কল — Zoocall</string>
+    <string name="shell_call_window">কল — %1$s</string>
+    <string name="shell_hotkey_in_use">%1$s অন্য একটি অ্যাপ ব্যবহার করছে, তাই এই কলে গ্লোবাল মিউট শর্টকাট বন্ধ থাকবে।</string>
+
+    <!-- Desktop shortcuts -->
+    <string name="settings_global_mute">গ্লোবাল মিউট শর্টকাট</string>
+    <string name="settings_global_mute_body">কলের সময় %1$s চাপলে মিউট চালু বা বন্ধ হয়, Zoocall সামনে না থাকলেও</string>
+</resources>

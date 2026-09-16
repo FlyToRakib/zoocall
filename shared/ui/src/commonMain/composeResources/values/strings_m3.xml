@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M3 strings (Network Doctor, knock, PTT, group calls, screen share, sounds). Same rules as strings.xml. -->
+<resources>
+    <!-- Network Doctor -->
+    <string name="doctor_title">Network Doctor</string>
+    <string name="doctor_run">Run Network Doctor</string>
+    <string name="doctor_settings_body">Find out why people can\'t see you</string>
+    <string name="doctor_check_again">Check again</string>
+    <string name="doctor_checking">Checking your network…</string>
+    <string name="doctor_all_good">Everything looks good</string>
+    <string name="doctor_all_good_body">If someone still can\'t see you, ask them to run Network Doctor too.</string>
+    <string name="doctor_issues">Some things need attention</string>
+    <string name="doctor_issues_body">Follow the steps below, then check again.</string>
+    <string name="doctor_status_ok">OK</string>
+    <string name="doctor_status_warning">Warning</string>
+    <string name="doctor_status_problem">Problem</string>
+    <string name="doctor_your_address">Your address</string>
+    <string name="doctor_adapter">Using %1$s</string>
+    <string name="doctor_adapter_wifi">Wi-Fi</string>
+    <string name="doctor_adapter_ethernet">Ethernet</string>
+    <string name="doctor_adapter_hotspot">Phone hotspot</string>
+    <string name="doctor_ignored_adapters">Not used (virtual adapters): %1$s</string>
+    <string name="doctor_open_settings">Open settings</string>
+    <string name="doctor_fix_failed">That didn\'t work. You can change it in your system settings.</string>
+
+    <string name="doctor_network_ok">Connected to a local network</string>
+    <string name="doctor_network_problem">Not connected to Wi-Fi or Ethernet</string>
+    <string name="doctor_network_fix">Connect to the same Wi-Fi or network as the people you want to reach. Mobile data can\'t reach them.</string>
+    <string name="doctor_listening_ok">Ready for calls on port %1$s</string>
+    <string name="doctor_listening_problem">Zoocall isn\'t accepting connections</string>
+    <string name="doctor_listening_fix">Restart Zoocall. If it keeps happening, another app may be using the network port.</string>
+    <string name="doctor_vpn_ok">No VPN in the way</string>
+    <string name="doctor_vpn_warning">A VPN is on</string>
+    <string name="doctor_vpn_fix">Your VPN may hide other devices. Allow local network access in your VPN settings, or turn it off while using Zoocall.</string>
+    <string name="doctor_discovery_ok">Found %1$s Zoocall devices nearby</string>
+    <string name="doctor_discovery_none">No one found nearby yet</string>
+    <string name="doctor_discovery_none_fix">Make sure others have Zoocall open on this same network. Guest Wi-Fi often hides devices from each other.</string>
+    <string name="doctor_discovery_blocked">This network blocks device discovery</string>
+    <string name="doctor_discovery_blocked_fix">Direct connections still work. Add people with a QR code or by address, or ask IT to allow multicast (mDNS).</string>
+    <string name="doctor_reach_ok">Can reach your contacts</string>
+    <string name="doctor_reach_problem">Can\'t reach your contacts</string>
+    <string name="doctor_reach_fix">This network may keep devices apart (common on guest or office Wi-Fi). Try another network, or ask IT to turn off client isolation.</string>
+    <string name="doctor_subnet_warning">Contacts may be on a different network segment</string>
+    <string name="doctor_subnet_fix">Your address is %1$s, but a contact was last seen at %2$s. Connect both devices to the same Wi-Fi name and band.</string>
+    <string name="doctor_profile_ok">“%1$s” is a Private network</string>
+    <string name="doctor_profile_problem">Windows treats “%1$s” as a Public network</string>
+    <string name="doctor_profile_fix">Windows blocks discovery and incoming calls on Public networks. In network settings, open this network\'s properties and choose Private.</string>
+    <string name="doctor_firewall_ok">Firewall allows Zoocall</string>
+    <string name="doctor_firewall_problem">Firewall may block incoming calls</string>
+    <string name="doctor_firewall_fix">Allow Zoocall on private networks. Windows will ask for permission.</string>
+    <string name="doctor_battery_ok">Battery saving won\'t stop calls</string>
+    <string name="doctor_battery_warning">Battery saving may stop calls from ringing</string>
+    <string name="doctor_battery_fix">Let Zoocall run in the background so calls ring while the screen is off.</string>
+
+    <!-- Knock -->
+    <string name="knock_action">Knock</string>
+    <string name="knock_action_body">Ask if they\'re free to talk</string>
+    <string name="knock_sent">Knocked. %1$s can reply with one tap.</string>
+    <string name="knock_unreachable">%1$s isn\'t reachable right now</string>
+    <string name="knock_not_supported">%1$s needs a newer Zoocall to get knocks</string>
+    <string name="knock_blocked">Unblock %1$s to knock</string>
+    <string name="knock_received">%1$s knocked</string>
+    <string name="knock_default_text">Are you free?</string>
+    <string name="knock_reply_call_me">Call me</string>
+    <string name="knock_reply_two_minutes">In 2 min</string>
+    <string name="knock_reply_busy">Busy</string>
+    <string name="knock_call">Call %1$s</string>
+    <string name="knock_dismiss">Dismiss</string>
+    <string name="knock_reply_failed">Couldn\'t send your reply. %1$s may have left.</string>
+    <string name="knock_replied_call_me">%1$s: Call me</string>
+    <string name="knock_replied_two_minutes">%1$s will be free in 2 minutes</string>
+    <string name="knock_replied_busy">%1$s is busy right now</string>
+    <string name="knock_call_back">Call</string>
+
+    <!-- Sounds & alerts -->
+    <string name="settings_sounds">Sounds &amp; alerts</string>
+    <string name="sounds_ringtone">Ringtone</string>
+    <string name="sounds_ringtone_change">Change ringtone</string>
+    <string name="sounds_ringtone_default">Default</string>
+    <string name="sounds_ringtone_default_named">Default (%1$s)</string>
+    <string name="sounds_ringtone_silent">Silent</string>
+    <string name="sounds_ringtone_classic">Classic</string>
+    <string name="sounds_ringtone_gentle">Gentle</string>
+    <string name="sounds_ringtone_bright">Bright</string>
+    <string name="sounds_vibrate">Vibrate when ringing</string>
+    <string name="sounds_call_sounds">Call and knock sounds</string>
+    <string name="sounds_call_sounds_body">Tones when a call connects or ends, call-waiting beeps and knock chimes</string>
+    <string name="sounds_flash">Flash alert for incoming calls</string>
+    <string name="sounds_flash_body">The screen flashes, and the camera light on phones, while a call rings</string>
+
+    <!-- Push-to-talk -->
+    <string name="ptt_action">Push-to-talk</string>
+    <string name="ptt_action_body">Talk instantly while you hold a button, no ringing</string>
+    <string name="ptt_allow">Allow push-to-talk</string>
+    <string name="ptt_allow_body">%1$s can talk to you instantly, without ringing</string>
+    <string name="ptt_not_supported">%1$s needs a newer Zoocall for push-to-talk</string>
+    <string name="ptt_not_allowed">%1$s hasn\'t turned on push-to-talk for you</string>
+    <string name="ptt_title">Push-to-talk</string>
+    <string name="ptt_connecting">Connecting…</string>
+    <string name="ptt_idle">Hold to talk</string>
+    <string name="ptt_idle_desktop">Hold the button or Space to talk</string>
+    <string name="ptt_you_talking">You\'re talking</string>
+    <string name="ptt_remote_talking">%1$s is talking</string>
+    <string name="ptt_channel_busy">%1$s is talking. Wait for them to finish.</string>
+    <string name="ptt_talk">Talk</string>
+    <string name="ptt_stop">Stop talking</string>
+    <string name="ptt_leave">Leave</string>
+    <string name="ptt_ended">Push-to-talk ended</string>
+
+    <!-- Group calls -->
+    <string name="call_add_people">Add people</string>
+    <string name="call_add_title">Add to call</string>
+    <string name="call_add_none">No one else nearby can join right now</string>
+    <string name="call_add_invited">Calling %1$s…</string>
+    <string name="call_add_full">The call is full</string>
+    <string name="call_add_not_supported">%1$s needs a newer Zoocall for group calls</string>
+    <string name="call_add_unreachable">%1$s isn\'t reachable right now</string>
+    <string name="call_add_declined">%1$s declined</string>
+    <string name="call_add_busy">%1$s is in another call</string>
+    <string name="call_add_no_answer">%1$s didn\'t answer</string>
+    <string name="call_group_people">%1$s people</string>
+    <string name="call_group_with">Group call with %1$s</string>
+    <string name="call_member_calling">Calling…</string>
+    <string name="call_member_connecting">Connecting…</string>
+    <string name="call_member_reconnecting">Reconnecting…</string>
+    <string name="call_member_muted">Muted</string>
+    <string name="call_member_audio_only">Audio only</string>
+    <string name="call_member_sharing">Sharing screen</string>
+
+    <!-- Call transfer -->
+    <string name="call_transfer">Transfer call</string>
+    <string name="call_transfer_title">Transfer to</string>
+    <string name="call_transferring">Calling %1$s to take over. You\'ll leave the call when they join.</string>
+
+    <!-- Call recording -->
+    <string name="call_record">Record call</string>
+    <string name="call_record_stop">Stop recording</string>
+    <string name="call_record_confirm_title">Record this call?</string>
+    <string name="call_record_confirm_body">Everyone in the call will see that you\'re recording and hear a sound. The recording stays on this device, encrypted.</string>
+    <string name="call_record_action">Record</string>
+    <string name="call_recording_banner">You\'re recording this call</string>
+    <string name="call_recorded_by_others">This call is being recorded</string>
+    <string name="recents_recorded">Recorded</string>
+    <string name="recents_recording_save">Save the recording of the call with %1$s</string>
+
+    <!-- Screen sharing -->
+    <string name="call_share_screen">Share screen</string>
+    <string name="call_stop_sharing">Stop sharing</string>
+    <string name="call_share_title">Share your screen</string>
+    <string name="call_share_screens">Screens</string>
+    <string name="call_share_windows">Windows</string>
+    <string name="call_share_none">Nothing to share was found</string>
+    <string name="call_share_failed">Couldn\'t share that. Try another screen or window.</string>
+    <string name="call_sharing_banner">You\'re sharing your screen</string>
+    <string name="call_remote_sharing">%1$s is sharing a screen</string>
+
+    <!-- Contact groups and announcements -->
+    <string name="groups_section">Groups</string>
+    <string name="group_new">New group</string>
+    <string name="group_edit">Edit group</string>
+    <string name="group_name">Group name</string>
+    <string name="group_members">Members</string>
+    <string name="group_no_contacts">Save people as contacts first, then put them in groups.</string>
+    <string name="group_empty_members">No one in this group yet</string>
+    <string name="group_create">Create</string>
+    <string name="group_save">Save</string>
+    <string name="group_people_online">%1$s people · %2$s online</string>
+    <string name="group_delete">Delete group</string>
+    <string name="group_delete_confirm">Delete “%1$s”? The people in it stay in your contacts.</string>
+    <string name="group_call">Call</string>
+    <string name="group_video">Video</string>
+    <string name="group_ptt">Talk</string>
+    <string name="group_announce">Announce</string>
+    <string name="group_announce_title">Announcement to %1$s</string>
+    <string name="group_announce_hint">Meeting in 5 min</string>
+    <string name="group_announce_send">Send</string>
+    <string name="group_announce_record">Record a voice announcement</string>
+    <string name="group_announce_stop">Stop and send</string>
+    <string name="group_announce_sent">Announcement sent to %1$s people</string>
+    <string name="group_nobody_reachable">No one in this group is reachable right now</string>
+    <string name="announcement_label">Announcement</string>
+
+    <!-- Live captions -->
+    <string name="call_live_captions">Live captions</string>
+    <string name="settings_live_captions_body">Your device writes out what people say, on the device itself</string>
+
+    <!-- Voice and camera effects -->
+    <string name="settings_strong_ns">Strong noise suppression</string>
+    <string name="settings_strong_ns_body">Removes more background noise, such as fans and typing. Voices can sound a little flatter.</string>
+    <string name="settings_camera_effects">Camera and microphone effects</string>
+    <string name="settings_camera_effects_body">Background blur and voice focus from your device, if it has them</string>
+
+    <!-- Linked devices -->
+    <string name="person_linked_device">This is my device</string>
+    <string name="person_linked_device_body">Link your own phone and computer so calls to either one ring on both. Turn this on in Zoocall on both devices.</string>
+    <string name="person_linked_device_waiting">Now turn on “This is my device” in Zoocall on %1$s too</string>
+    <string name="person_linked_device_on">Linked. Calls to either device ring on both.</string>
+    <string name="call_end_answered_elsewhere">Answered on another device</string>
+
+    <!-- Desk intercom -->
+    <string name="settings_desk_intercom">Desk intercom</string>
+    <string name="settings_desk_intercom_body">Contacts you allow can open a live audio line to this computer without ringing. You\'ll always hear a chime and see a banner.</string>
+    <string name="intercom_action">Intercom</string>
+    <string name="intercom_action_body">Talk to their desk right away, audio only</string>
+    <string name="intercom_allow">Allow intercom</string>
+    <string name="intercom_allow_body">%1$s can open a live audio line to this computer without ringing</string>
+    <string name="intercom_not_supported">%1$s needs a newer Zoocall for intercom</string>
+    <string name="call_intercom_banner">Intercom · your microphone is on</string>
+
+    <!-- Disappearing messages -->
+    <string name="chat_disappearing">Disappearing messages</string>
+    <string name="chat_disappearing_body">New messages in this chat are deleted on both devices after the time you choose. People can still copy or take a photo of them first.</string>
+    <string name="chat_disappearing_on">Disappearing messages: %1$s</string>
+    <string name="chat_disappearing_off">Disappearing messages: off</string>
+    <string name="chat_disappearing_done">Done</string>
+    <string name="disappear_off">Off</string>
+    <string name="disappear_hour">1 hour</string>
+    <string name="disappear_day">1 day</string>
+    <string name="disappear_week">1 week</string>
+
+    <!-- App lock -->
+    <string name="settings_app_lock">App lock</string>
+    <string name="settings_app_lock_body_device">Use your fingerprint, face or screen lock to open Zoocall. Calls still ring while it\'s locked.</string>
+    <string name="settings_app_lock_body_passcode">Ask for a passcode to open Zoocall. Calls still ring while it\'s locked. A forgotten passcode can\'t be recovered.</string>
+    <string name="lock_title">Zoocall is locked</string>
+    <string name="lock_prompt_subtitle">Confirm it\'s you to open Zoocall</string>
+    <string name="lock_unlock">Unlock</string>
+    <string name="lock_passcode">Passcode</string>
+    <string name="lock_wrong">Wrong passcode</string>
+    <string name="lock_wait">Too many tries. Try again in %1$s seconds.</string>
+    <string name="lock_needs_screen_lock">Set up a screen lock on this device first</string>
+    <string name="lock_set_title">Choose a passcode</string>
+    <string name="lock_set_confirm">Enter it again</string>
+    <string name="lock_set_too_short">Use at least 4 characters</string>
+    <string name="lock_set_mismatch">The passcodes don\'t match</string>
+    <string name="lock_save">Turn on</string>
+    <string name="lock_turn_off_title">Turn off app lock</string>
+    <string name="lock_turn_off">Turn off</string>
+
+    <!-- Encrypted backup -->
+    <string name="settings_backup">Backup</string>
+    <string name="backup_export">Export chats and contacts</string>
+    <string name="backup_export_body">Save a passphrase-protected file to move to a new device. Your identity key stays here, so contacts will see a new safety code.</string>
+    <string name="backup_restore">Restore from a backup</string>
+    <string name="backup_restore_body">Bring back contacts, groups and chats from a Zoocall backup file</string>
+    <string name="backup_passphrase">Passphrase</string>
+    <string name="backup_passphrase_again">Enter it again</string>
+    <string name="backup_passphrase_hint">Use at least 8 characters. Without the passphrase the backup can\'t be opened, by anyone.</string>
+    <string name="backup_too_short">Use at least 8 characters</string>
+    <string name="backup_mismatch">The passphrases don\'t match</string>
+    <string name="backup_export_action">Export</string>
+    <string name="backup_restore_action">Restore</string>
+    <string name="backup_working">Working…</string>
+    <string name="backup_saved">Backup saved</string>
+    <string name="backup_export_failed">Couldn\'t create the backup</string>
+    <string name="backup_restored">Restored %1$s contacts and %2$s messages</string>
+    <string name="backup_wrong_passphrase">Wrong passphrase</string>
+    <string name="backup_not_a_backup">That file isn\'t a Zoocall backup</string>
+    <string name="backup_damaged">The backup is damaged or incomplete</string>
+    <string name="backup_unreadable">Couldn\'t read that file</string>
+
+    <!-- Group chats -->
+    <string name="group_chat_action">Chat</string>
+    <string name="group_chat_people">%1$s people</string>
+    <string name="group_chat_options">Group chat options</string>
+    <string name="group_chat_leave">Leave group chat</string>
+    <string name="group_chat_leave_confirm">You won\'t get new messages from “%1$s”. The messages you already have stay on this device.</string>
+    <string name="group_chat_leave_action">Leave</string>
+    <string name="group_chat_delivered">Delivered to %1$s of %2$s</string>
+    <string name="group_chat_read">Read by %1$s of %2$s</string>
+    <string name="group_chat_empty">Say hello to everyone in %1$s</string>
+    <string name="group_chat_too_big">Group chats can have up to 32 people</string>
+    <string name="chats_group_sender">%1$s: %2$s</string>
+
+    <!-- Private discovery -->
+    <string name="settings_visibility_contacts">Contacts only (strangers can\'t see you)</string>
+
+    <!-- Desktop shell (tray, windows, system notifications) -->
+    <string name="shell_already_running">Zoocall is already running. Look for it in the system tray.</string>
+    <string name="shell_tray_open">Open Zoocall</string>
+    <string name="shell_tray_quit">Quit Zoocall</string>
+    <string name="shell_incoming_call_window">Incoming call — Zoocall</string>
+    <string name="shell_call_window">Call — %1$s</string>
+    <string name="shell_hotkey_in_use">%1$s is used by another app, so the global mute shortcut is off for this call.</string>
+
+    <!-- Desktop shortcuts -->
+    <string name="settings_global_mute">Global mute shortcut</string>
+    <string name="settings_global_mute_body">%1$s mutes or unmutes you during a call, even when Zoocall isn\'t in front</string>
+</resources>
