@@ -1,0 +1,56 @@
+// Zoocall encrypted backup payload (docs/01 §9 "Encrypted export / import").
+//
+// Never sent on the network: this is the plaintext inside a passphrase-encrypted .zcbackup file
+// (protocol/spec/backup-file.md). Same compatibility rules as zoocall.proto: never renumber or
+// reuse a field, and ignore unknown fields.
+syntax = "proto3";
+
+package zoocall.v1;
+
+option java_package = "app.zoocall.protocol.v1";
+
+message Backup {
+  uint32 version = 1; // 1
+  int64 created_at_ms = 2;
+  string display_name = 3;
+  string role = 4;
+  repeated BackupContact contacts = 5;
+  repeated BackupGroup groups = 6;
+  repeated BackupMessage messages = 7;
+}
+
+// The contact's public key is included so the restored contact stays the same person; the backup
+// never contains this device's own private key (edge case D2).
+message BackupContact {
+  string fingerprint = 1; // lowercase hex, must match public_key
+  bytes public_key = 2;
+  string display_name = 3;
+  string role = 4;
+  bool verified = 5;
+  bool favorite = 6;
+  bool blocked = 7;
+  bool allow_push_to_talk = 8;
+  bool allow_intercom = 9;
+}
+
+message BackupGroup {
+  string name = 1;
+  repeated string members = 2; // fingerprints, lowercase hex
+}
+
+// Text and voice messages. File messages and disappearing messages are not backed up.
+message BackupMessage {
+  string id = 1;
+  string peer = 2; // fingerprint, lowercase hex
+  bool outgoing = 3;
+  string body = 4;
+  string state = 5; // sending | sent | delivered | read | received | seen
+  int64 sent_at_ms = 6;
+  int64 received_at_ms = 7;
+  string reply_to = 8;
+  string kind = 9; // text | voice
+  int64 duration_ms = 10;
+  bool announcement = 11;
+  bytes voice_audio = 12;
+  bytes voice_waveform = 13;
+}

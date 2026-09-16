@@ -1,0 +1,387 @@
+// Zoocall protocol v1 — control channel messages.
+//
+// Every frame on the Noise-encrypted control channel carries exactly one Envelope.
+// Compatibility rules (see protocol/spec/protocol-v1.md):
+//   * Never renumber or reuse a field number. Deleted fields are `reserved`.
+//   * Unknown fields and unknown `oneof` cases MUST be ignored by receivers.
+//   * New features are gated by capability strings exchanged in Hello.
+syntax = "proto3";
+
+package zoocall.v1;
+
+option java_package = "app.zoocall.protocol.v1";
+
+// ---------------------------------------------------------------------------
+// Handshake payload (carried inside Noise XX messages 2 and 3)
+// ---------------------------------------------------------------------------
+
+enum DeviceClass {
+  DEVICE_CLASS_UNSPECIFIED = 0;
+  DEVICE_CLASS_PHONE = 1;
+  DEVICE_CLASS_TABLET = 2;
+  DEVICE_CLASS_DESKTOP = 3;
+}
+
+enum ConnectionPurpose {
+  CONNECTION_PURPOSE_CONTROL = 0;
+  CONNECTION_PURPOSE_FILE = 1;
+}
+
+message HandshakePayload {
+  repeated uint32 protocol_versions = 1;
+  string app_version = 2;
+  DeviceClass device_class = 3;
+  ConnectionPurpose purpose = 4;
+  string file_id = 5; // only when purpose = FILE
+  // TCP port on which the sender accepts control connections. Lets a peer that
+  // connected to us learn how to call back without waiting for discovery.
+  uint32 listen_port = 6;
+}
+
+// ---------------------------------------------------------------------------
+// Envelope
+// ---------------------------------------------------------------------------
+
+message Envelope {
+  uint64 seq = 1;
+  uint64 ack = 2;
+
+  oneof body {
+    Hello hello = 10;
+    Ping ping = 11;
+    Pong pong = 12;
+    Error error = 13;
+    Fragment fragment = 14;
+
+    ProfileRequest profile_request = 20;
+    Profile profile = 21;
+    PresenceUpdate presence = 22;
+
+    CallInvite call_invite = 40;
+    CallRinging call_ringing = 41;
+    CallAccept call_accept = 42;
+    CallDecline call_decline = 43;
+    CallCancel call_cancel = 44;
+    CallEnd call_end = 45;
+    CallRoster call_roster = 46;   // capability call.group
+    SessionDescription sdp = 47;
+    IceCandidate ice = 48;
+    MediaState media_state = 49;
+    Knock knock = 50;              // capability knock.v1
+    CallUpgrade call_upgrade = 51; // capability call.upgrade
+    PttFloor ptt_floor = 52;       // capability ptt.v1
+
+    ChatMessage chat = 60;
+    ChatReceipt receipt = 61;
+    Typing typing = 62;
+    Reaction reaction = 63; // capability chat.reactions
+
+    FileOffer file_offer = 80;       // capability file.v1
+    FileResponse file_response = 81; // capability file.v1
+  }
+
+  // Field numbers reserved for messages specified in docs/03-protocol.md but not yet implemented.
+  reserved 23, 24;
+}
+
+// ---------------------------------------------------------------------------
+// Session
+// ---------------------------------------------------------------------------
+
+enum Presence {
+  PRESENCE_UNSPECIFIED = 0;
+  PRESENCE_AVAILABLE = 1;
+  PRESENCE_BUSY = 2;
+  PRESENCE_DND = 3;
+  PRESENCE_AWAY = 4;
+}
+
+message Hello {
+  string app_version = 1;
+  repeated string capabilities = 2;
+  bytes profile_hash = 3;
+  Presence presence = 4;
+  string display_name = 5;
+  string role = 6;
+  DeviceClass device_class = 7;
+  string status_text = 8; // custom status, ≤ 80 characters
+  // Capability device.link: fingerprints (lowercase hex, ≤ 8) of the sender's own other devices.
+  // A link counts only when both devices list each other.
+  repeated string linked_devices = 9;
+}
+
+message Ping {
+  uint64 nonce = 1;
+}
+
+message Pong {
+  uint64 nonce = 1;
+}
+
+message Error {
+  enum Code {
+    CODE_UNSPECIFIED = 0;
+    CODE_UNSUPPORTED = 1;
+    CODE_RATE_LIMITED = 2;
+    CODE_NOT_ALLOWED = 3;
+    CODE_TOO_LARGE = 4;
+    CODE_BAD_STATE = 5;
+  }
+  Code code = 1;
+  string message = 2;
+}
+
+// A logical Envelope larger than one Noise frame is split into fragments.
+// Fragments of one message share `message_id` and arrive in order on one connection.
+message Fragment {
+  uint64 message_id = 1;
+  uint32 index = 2;
+  uint32 count = 3;
+  bytes chunk = 4;
+}
+
+message ProfileRequest {}
+
+message Profile {
+  string display_name = 1;
+  string role = 2;
+  bytes avatar = 3; // JPEG/PNG/WebP, ≤ 256 px, ≤ 64 KiB
+  bytes profile_hash = 4;
+}
+
+message PresenceUpdate {
+  Presence presence = 1;
+  string status_text = 2;
+}
+
+// ---------------------------------------------------------------------------
+// Calls
+// ---------------------------------------------------------------------------
+
+enum CallKind {
+  CALL_KIND_UNSPECIFIED = 0;
+  CALL_KIND_AUDIO = 1;
+  CALL_KIND_VIDEO = 2;
+}
+
+message CallInvite {
+  string call_id = 1; // UUIDv7, lowercase canonical form
+  CallKind kind = 2;
+  // Push-to-talk session (capability ptt.v1): audio only, never rings. The callee accepts at once
+  // if it allows push-to-talk from the caller, otherwise declines NOT_ALLOWED.
+  bool push_to_talk = 3;
+  // Invitation into an existing call (capability call.group). The sender is the host; a
+  // CallRoster follows. `call_id` is the group call's id.
+  bool group = 4;
+  // Capability call.intercom: a desk intercom line. Audio only, connects without ringing when the
+  // callee turned on desk intercom and allowed this contact; otherwise declined with REASON_NOT_ALLOWED.
+  bool intercom = 5;
+}
+
+// Group call membership (capability call.group), sent by the host to every member whenever
+// someone joins. `members` are in join order, host first. Every pair of members has its own media
+// leg (full mesh); for a new pair the member with the lower fingerprint connects and offers.
+message CallRoster {
+  string call_id = 1;
+  string host_fingerprint = 2; // lowercase hex
+  repeated RosterMember members = 3;
+}
+
+message RosterMember {
+  string fingerprint = 1; // lowercase hex
+  string host = 2;        // where the host reaches this member; empty for the host itself
+  uint32 port = 3;
+  bool video = 4;         // false: this member joined audio-only (video call above 4 people)
+}
+
+message CallRinging {
+  string call_id = 1;
+}
+
+message CallAccept {
+  string call_id = 1;
+  CallKind accepted_kind = 2;
+}
+
+message CallDecline {
+  enum Reason {
+    REASON_UNSPECIFIED = 0;
+    REASON_DECLINED = 1;
+    REASON_BUSY = 2;
+    REASON_DND = 3;
+    REASON_NOT_ALLOWED = 4;
+  }
+  string call_id = 1;
+  Reason reason = 2;
+  string quick_reply = 3;
+}
+
+message CallCancel {
+  string call_id = 1;
+  // Capability device.link: another of the callee's linked devices answered or declined, so this isn't a missed call.
+  bool handled_elsewhere = 2;
+}
+
+message CallEnd {
+  enum Reason {
+    REASON_UNSPECIFIED = 0;
+    REASON_COMPLETED = 1;
+    REASON_FAILED_NETWORK = 2;
+    REASON_FAILED_MEDIA = 3;
+  }
+  string call_id = 1;
+  Reason reason = 2;
+}
+
+message SessionDescription {
+  enum Type {
+    TYPE_UNSPECIFIED = 0;
+    TYPE_OFFER = 1;
+    TYPE_ANSWER = 2;
+  }
+  string call_id = 1;
+  bytes peer_fp = 2; // leg identifier for group calls; empty in 1:1
+  Type type = 3;
+  string sdp = 4;
+}
+
+message IceCandidate {
+  string call_id = 1;
+  bytes peer_fp = 2;
+  string candidate = 3;
+  string sdp_mid = 4;
+  int32 sdp_mline_index = 5;
+  bool end_of_candidates = 6;
+}
+
+message MediaState {
+  string call_id = 1;
+  bool mic_muted = 2;
+  bool camera_on = 3;
+  bool screen_sharing = 4;
+  bool on_hold = 5; // capability call.hold: the sender paused its audio and video
+  bool recording = 6; // capability call.record: the sender is recording this call (everyone shows it)
+}
+
+// Mid-call audio → video upgrade with consent (capability call.upgrade).
+// The requester sends REQUEST; the other side answers ACCEPT or DECLINE; the requester may CANCEL.
+// After ACCEPT both sides add video and the offerer renegotiates with a new OFFER.
+message CallUpgrade {
+  enum Action {
+    ACTION_UNSPECIFIED = 0;
+    ACTION_REQUEST = 1;
+    ACTION_ACCEPT = 2;
+    ACTION_DECLINE = 3;
+    ACTION_CANCEL = 4;
+  }
+  string call_id = 1;
+  Action action = 2;
+}
+
+// Push-to-talk floor (capability ptt.v1). `talking = true` when the sender starts transmitting,
+// false when it stops. If both start at once, the session's caller keeps the floor and the
+// callee stops transmitting. A sender stops by itself after 60 s.
+message PttFloor {
+  string call_id = 1;
+  bool talking = 2;
+}
+
+// A gentle "Are you free?" nudge with one-tap replies (capability knock.v1).
+// Knocks are live only: they are never queued for a peer that isn't connected.
+// A reply is a Knock with `in_reply_to` set to the answered knock's id and `reply` set.
+message Knock {
+  enum Reply {
+    REPLY_UNSPECIFIED = 0;
+    REPLY_CALL_ME = 1;
+    REPLY_TWO_MINUTES = 2;
+    REPLY_BUSY = 3;
+  }
+  string id = 1;          // ULID
+  string text = 2;        // optional note, ≤ 120 characters; empty on replies
+  string in_reply_to = 3;
+  Reply reply = 4;
+}
+
+// ---------------------------------------------------------------------------
+// Chat
+// ---------------------------------------------------------------------------
+
+message ChatMessage {
+  string id = 1; // ULID
+  int64 sent_at_ms = 2;
+  string text = 3; // empty for voice notes
+  string reply_to = 4;
+  VoiceNote voice_note = 5; // capability chat.voice
+  Attachment attachment = 6; // capability file.v1; `text` is empty
+  // A broadcast to one of the sender's contact groups ("Meeting in 5 min"): receivers alert once,
+  // even in the foreground (capability chat.announce; older clients show a normal message).
+  bool announcement = 7;
+  // Capability chat.disappear: delete this message this many seconds after it's sent (sender) or
+  // received (receiver); 0 = keeps. A receiver that supports it adopts the value as the chat's timer.
+  uint32 expires_in_s = 8;
+  // Capability chat.group: the message belongs to a small group chat. The sender sends it to every
+  // member separately; receivers file it under the group and create or update the group from it.
+  // A message with only `group` set (no text, voice or attachment) is a group change.
+  GroupChatInfo group = 9;
+}
+
+// A file sent with a message. The bytes travel on a separate FILE connection (§ File transfer).
+message GroupChatInfo {
+  string id = 1;               // ULID chosen by whoever created the group
+  string name = 2;             // ≤ 40 characters
+  repeated string members = 3; // lowercase hex fingerprints, including the sender; ≤ 32
+  int64 updated_at_ms = 4;     // the newest name and member list wins
+}
+
+message Attachment {
+  string file_id = 1;     // equals the ChatMessage id
+  string name = 2;        // untrusted: receivers sanitize before display or saving
+  string mime = 3;
+  uint64 size = 4;
+  bytes blake2b_256 = 5;  // hash of the whole file
+}
+
+// Adds, replaces or removes the sender's single reaction on a message (capability chat.reactions).
+message Reaction {
+  string message_id = 1;
+  string emoji = 2;       // ≤ 16 UTF-16 units
+  bool remove = 3;
+}
+
+// Sender → receiver: the file's bytes are available (again). Sent after the sender resumes a paused upload.
+message FileOffer {
+  string file_id = 1;
+  uint64 size = 2;
+  bytes blake2b_256 = 3;
+}
+
+// Receiver → sender. accept = true: open a FILE connection and stream from `resume_from_offset`.
+// accept = false: stop sending (the user paused or declined the download).
+message FileResponse {
+  string file_id = 1;
+  bool accept = 2;
+  uint64 resume_from_offset = 3;
+}
+
+// A short recorded voice message, sent inline (≤ 900 KiB, ≤ 120 s).
+message VoiceNote {
+  // Opus packets, 16 kHz mono, 20 ms frames, each prefixed with a u16 BE length.
+  bytes audio = 1;
+  uint32 duration_ms = 2;
+  bytes waveform = 3; // ≤ 64 amplitude bars, 0..255
+  string codec = 4;   // "opus/16000/1;zoocall-framing=1"
+}
+
+message ChatReceipt {
+  enum State {
+    STATE_UNSPECIFIED = 0;
+    STATE_DELIVERED = 1;
+    STATE_READ = 2;
+  }
+  repeated string ids = 1;
+  State state = 2;
+}
+
+message Typing {
+  bool active = 1;
+}
