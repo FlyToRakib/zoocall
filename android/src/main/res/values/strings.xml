@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Zoocall</string>
+
+    <string name="channel_incoming_calls">Incoming calls</string>
+    <string name="channel_ongoing_calls">Ongoing calls</string>
+    <string name="channel_messages">Messages</string>
+    <string name="channel_missed_calls">Missed calls</string>
+    <string name="channel_reachable">Stay reachable</string>
+    <string name="channel_reachable_description">Keeps Zoocall listening on your Wi-Fi so you can receive calls.</string>
+
+    <string name="reachable_title">Zoocall is reachable</string>
+    <string name="reachable_text">People on your Wi-Fi can call you</string>
+    <string name="reachable_offline">Waiting for Wi-Fi</string>
+
+    <string name="notify_incoming_audio">Incoming voice call</string>
+    <string name="notify_incoming_video">Incoming video call</string>
+    <string name="notify_ongoing">Ongoing call</string>
+    <string name="notify_calling">Calling…</string>
+    <string name="notify_missed_title">Missed call</string>
+    <string name="notify_missed_text">%1$s called you</string>
+    <string name="notify_unknown_person">Zoocall user</string>
+    <string name="notify_voice_message">🎤 Voice message</string>
+
+    <string name="channel_knocks">Knocks</string>
+    <string name="channel_announcements">Announcements</string>
+    <string name="notify_announcement_title">📢 %1$s</string>
+    <string name="notify_voice_announcement">🎤 Voice announcement</string>
+    <string name="notify_knock_title">👋 %1$s knocked</string>
+    <string name="notify_knock_text">Are you free?</string>
+    <string name="notify_knock_call_me">Call me</string>
+    <string name="notify_knock_two_minutes">In 2 min</string>
+    <string name="notify_knock_busy">Busy</string>
+    <string name="notify_knock_replied_call_me">Call me</string>
+    <string name="notify_knock_replied_two_minutes">Free in 2 minutes</string>
+    <string name="notify_knock_replied_busy">Busy right now</string>
+
+    <string name="audio_route_earpiece">Phone</string>
+    <string name="audio_route_speaker">Speaker</string>
+    <string name="audio_route_bluetooth">Bluetooth</string>
+    <string name="audio_route_wired">Headphones</string>
+
+    <string name="scan_title">Scan a Zoocall code</string>
+    <string name="scan_hint">Point the camera at the QR code on the other device</string>
+    <string name="scan_camera_denied">Allow camera access to scan codes</string>
+    <string name="scan_close">Close</string>
+    <string name="scan_open_settings">Open settings</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose draws everything; the window theme only controls the first frame and system bars. -->
+    <style name="Theme.Zoocall" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/zoocall_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Zoocall.Call" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/zoocall_call_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

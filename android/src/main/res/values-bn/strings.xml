@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="channel_incoming_calls">আগত কল</string>
+    <string name="channel_ongoing_calls">চলমান কল</string>
+    <string name="channel_messages">মেসেজ</string>
+    <string name="channel_missed_calls">মিসড কল</string>
+    <string name="channel_reachable">যোগাযোগযোগ্য থাকুন</string>
+    <string name="channel_reachable_description">কল পেতে Zoocall-কে আপনার Wi-Fi-তে সক্রিয় রাখে।</string>
+
+    <string name="reachable_title">Zoocall-এ যোগাযোগ করা যাবে</string>
+    <string name="reachable_text">আপনার Wi-Fi-এর লোকেরা আপনাকে কল করতে পারবেন</string>
+    <string name="reachable_offline">Wi-Fi-এর অপেক্ষায়</string>
+
+    <string name="notify_incoming_audio">আগত ভয়েস কল</string>
+    <string name="notify_incoming_video">আগত ভিডিও কল</string>
+    <string name="notify_ongoing">চলমান কল</string>
+    <string name="notify_calling">কল করা হচ্ছে…</string>
+    <string name="notify_missed_title">মিসড কল</string>
+    <string name="notify_missed_text">%1$s আপনাকে কল করেছিলেন</string>
+    <string name="notify_unknown_person">Zoocall ব্যবহারকারী</string>
+    <string name="notify_voice_message">🎤 ভয়েস মেসেজ</string>
+
+    <string name="channel_knocks">নক</string>
+    <string name="channel_announcements">ঘোষণা</string>
+    <string name="notify_announcement_title">📢 %1$s</string>
+    <string name="notify_voice_announcement">🎤 ভয়েস ঘোষণা</string>
+    <string name="notify_knock_title">👋 %1$s নক করেছেন</string>
+    <string name="notify_knock_text">আপনার কি সময় আছে?</string>
+    <string name="notify_knock_call_me">কল করুন</string>
+    <string name="notify_knock_two_minutes">২ মিনিট পরে</string>
+    <string name="notify_knock_busy">ব্যস্ত</string>
+    <string name="notify_knock_replied_call_me">আমাকে কল করুন</string>
+    <string name="notify_knock_replied_two_minutes">২ মিনিট পরে ফ্রি</string>
+    <string name="notify_knock_replied_busy">এখন ব্যস্ত</string>
+
+    <string name="audio_route_earpiece">ফোন</string>
+    <string name="audio_route_speaker">স্পিকার</string>
+    <string name="audio_route_bluetooth">ব্লুটুথ</string>
+    <string name="audio_route_wired">হেডফোন</string>
+
+    <string name="scan_title">Zoocall কোড স্ক্যান করুন</string>
+    <string name="scan_hint">অন্য ডিভাইসের QR কোডের দিকে ক্যামেরা ধরুন</string>
+    <string name="scan_camera_denied">কোড স্ক্যান করতে ক্যামেরার অনুমতি দিন</string>
+    <string name="scan_close">বন্ধ করুন</string>
+    <string name="scan_open_settings">সেটিংস খুলুন</string>
+</resources>
